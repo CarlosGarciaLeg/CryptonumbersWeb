@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-img :src="require('@/assets/portada-main.png')" alt="">
+    <section class="portada">
       <!-- header -->
       <header-app></header-app>
       <!-- sextion main portada -->
@@ -16,7 +16,10 @@
                 cols="12"
                 md="11"
                 style=""
-                class=" pa-0 ml-14 mt-12 fill-height d-flex flex-column justify-center align-center "
+                :class="{
+                  'ml-14': $vuetify.breakpoint.smAndUp,
+                }"
+                class=" pa-0  mt-12 fill-height d-flex flex-column justify-center align-center "
               >
                 <span class="tituloPortada ma-2" v-html="titulo"></span>
                 <v-row class="  mt-2 justify-center" style="width:100%; ">
@@ -26,6 +29,7 @@
                     class="pa-0 ma-0 fill-height d-flex flex-column justify-center align-center "
                   >
                     <span
+                      :class="{ 'text-xs-h3': $vuetify.breakpoint.xsOnly }"
                       class="tituloPortada__sub--titulo  ma-2"
                       v-html="subtitulo"
                     >
@@ -50,7 +54,7 @@
                       class="mt-8 justify-center pa-0 ma-0 "
                       style="width:100%; "
                     >
-                      <v-col cols="11" md="9" class="pa-0 ma-0 ">
+                      <v-col cols="12" md="9" class="">
                         <v-text-field
                           placeholder="Introduzca número"
                           single-line
@@ -58,7 +62,7 @@
                           elevation-4
                           light
                           v-model.number="Crytonumero"
-                          class=" rounded-0  search-field"
+                          class=" mx-5 elevation-0 rounded-0  search-field"
                           height="50px"
                           background-color="#ffffff"
                         >
@@ -67,7 +71,7 @@
                               color="#0e41ff"
                               class="rounded-0 btn--search white--text "
                               height="50"
-                              width="200"
+                              width="150"
                               @click="deleteTypedItem()"
                             >
                               Buscar
@@ -83,22 +87,37 @@
           </v-col>
         </v-row>
       </section>
-    </v-img>
+    </section>
 
     <!-- section dos  -->
-    <v-img :src="require('@/assets/background-2.png')" alt="">
+    <div class="section__dos  pa-0 ma-0">
       <v-row
         class=" justify-center align-center  pa-0 ma-0 "
         style="width:100%; "
       >
-        <v-col cols="12" md="12" class="pa-2  mt-14 ma-2 ">
+        <v-col
+          cols="12"
+          md="12"
+          class="pa-2  mt-14 ma-2 "
+          :class="{ 'mt-15': $vuetify.breakpoint.xsOnly }"
+        >
           <v-row
             wrap
-            class=" justify-center align-center  pa-0 ma-0 "
+            class=" justify-center align-center mt-15  pa-0 ma-0 "
             style="width:100%; "
           >
-            <v-col cols="10" md="4" class="pa-0  ma-0 ">
-              <v-row class="justify-center" style="width:100%; ">
+            <v-col
+              cols="10"
+              md="4"
+              class="pa-0 mt-15  ma-2 "
+              :class="{ 'mt-15': $vuetify.breakpoint.xsOnly }"
+            >
+              <v-row
+                class="justify-center"
+                style="width:100%; "
+                data-aos="fade"
+                data-aos-duration="2500"
+              >
                 <v-col cols="12" md="11" style="" class=" text-left mt-5">
                   <span class="tituloPortada ma-0" v-html="titulo"></span>
                   <span class="sectionTwo__sub--titulo ">
@@ -135,33 +154,44 @@
               </v-row>
             </v-col>
             <v-col cols="7" md="3" class="pa-2  mt-15 ma-2 ">
-              <v-img :src="require('@/assets/img-cryptonumber-1.png')" alt="">
+              <v-img
+                data-aos="zoom-in"
+                data-aos-duration="2500"
+                :src="require('@/assets/img-cryptonumber-1.png')"
+                alt=""
+              >
               </v-img>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
-    </v-img>
-    <v-img :src="require('@/assets/background-3.png')" alt="">
+    </div>
+
+    <!-- section 3 -->
+    <section class="section__tres #1b1d22">
       <v-spacer></v-spacer>
-      <v-row class="  mt-15 justify-center" style="width:100%; ">
+      <v-row class=" mt-15  justify-center" style="width:100%; ">
         <v-col
-          cols="9"
+          cols="10"
           md="9"
-          class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
+          class="pa-0 ma-0   mt-15 fill-height d-flex flex-column justify-center align-center "
         >
-          <span class="tituloPortada__sectionThree  ma-2">
+          <span
+            class="tituloPortada__sectionThree  ma-2"
+            
+          >
             ¿Qué puedo hacer con un Número NFT?
           </span>
           <v-row class="  mt-2 justify-center   " style="width:100%; ">
             <v-col
-              cols="11"
+              cols="12"
               md="11"
               class="pa-0 ma-0 fill-height d-flex flex-column justify-center align-center "
             >
               <span
                 class="sectionThree__sub--description  ma-4"
                 style=" margin: 26px 110px 101px 119px;"
+                
               >
                 Con los <strong> NFT de Cryptonumbers</strong> ocurre los mismo
                 que con los “Blockchain Domains” en los markets de NFTs, el<br />
@@ -169,7 +199,7 @@
                 registro en la blockchain obtienes una prueba<br />
                 verificable de que ese activo digital es auténtico. Es un token
                 ERC-721, por su naturaleza puede ser operado<br />
-                en los mercados de la red.
+                en los mercados de la #1b1d22.
               </span>
             </v-col>
           </v-row>
@@ -182,75 +212,83 @@
           class="pa-1 ma-1   fill-height d-flex flex-column justify-center align-center "
         >
           <!-- cards information products -->
-          <v-row class="mt-2 justify-center   " style="width:100%; ">
+          <v-row class="mt-10 justify-center   " style="width:100%; ">
             <v-col
-              cols="8"
+              cols="9"
               md="3"
-              v-for="(item, i) in 6"
+              v-for="(item, i) in cardinfo"
               :key="i"
-              class="pa-1 ma-1 fill-height d-flex flex-column justify-center align-center "
+              class="pa-1 ma-3  mt-8 fill-height d-flex flex-column justify-center align-center "
+              data-aos="zoom-in"
+                              :data-aos-duration="2500"
             >
               <v-card
                 class=" elevation-0 pa-0 ma-0"
                 max-width="344"
                 color="transparent"
+                v-for="(elem, j) in item.images"
+                :key="j"
               >
-                <v-card-text class="text-center align-center   justify-center ">
-                  <div style="width:100%;" class="text-center align-center ">
-                    <v-row
-                      class=" pa-0 ma-0 mt-2 justify-center"
-                      style="width:100%; "
+                <div style="width:100%;" class=" text-center align-center ">
+                  <v-row
+                    class=" pa-0 ma-0  justify-center"
+                    style="width:100%; "
+                  >
+                    <v-col
+                      cols="12"
+                      md="12"
+                      class="pa-1 ma-0"
+                      :id="`icon--cards-${i}`"
                     >
-                      <v-col
-                        cols="12"
-                        md="12"
-                        class="  fill-height d-flex flex-column justify-center align-center"
-                      >
-                        <v-img
-                          width="128px"
-                          height="128px"
-                          class=""
-                          :src="require('@/assets/icon-defi.png')"
-                          alt=""
-                        ></v-img>
-                      </v-col>
-                    </v-row>
-                  </div>
-                  <p class="text--card__titulo mt-5">
-                    Catedral Defi
+                      <v-img
+                        contain
+                        class=""
+                        :src="elem.src"
+                        alt=""
+                        style=" width: 152px;"
+                      ></v-img>
+                    </v-col>
+                  </v-row>
+                </div>
+                <div>
+                  <p class="text--card__titulo pa-0 ma-0">
+                    {{ elem.caption }}
                   </p>
-
-                  <div class="text--card__subtitulo">
-                    Úsalo como colateral en cualquier plataforma que aceptén
-                    tokens NFT como aval para finanzas descentralizadas.
-                  </div>
-                </v-card-text>
-                <v-card-actions> </v-card-actions>
+                  <p class="text--card__subtitulo pa-0 ma-0">
+                    {{ elem.text }}
+                  </p>
+                </div>
               </v-card>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
-    </v-img>
+    </section>
+    <!-- fin section tres -->
     <section id="cabecera" class="background:#17191e; width:100%; height:100%;">
       <v-row wrap class="fill-height justify-center align-center  pa-0 ma-0 ">
+        <v-spacer></v-spacer>
         <v-col
           cols="12"
           md="12"
           style="background:#1b1d22;"
-          class="align-center text-center  justify-center"
+          class="align-center text-center mt-15 justify-center"
         >
-          <v-spacer></v-spacer>
+          <v-spacer class=""></v-spacer>
           <v-row class="  mt-15 justify-center" style="width:100%; ">
             <v-col
               cols="12"
               md="9"
               class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
             >
-              <span class="tituloPortada__sectionThree  ma-2">
+              <span
+                class="tituloPortada__sectionThree  ma-2"
+                data-aos="fade-up"
+                data-aos-duration="4000"
+              >
                 ¿Cómo obtener mi número?
               </span>
-              <v-row class="  mt-2 justify-center   " style="width:100%; ">
+              <v-row class="mt-2 justify-center   " style="width:100%; ">
                 <v-col
                   cols="11"
                   md="11"
@@ -259,6 +297,8 @@
                   <span
                     class="sectionThree__sub--description  ma-4"
                     style=" margin: 26px 110px 101px 119px;"
+                    data-aos="fade"
+                    data-aos-duration="4000"
                   >
                     Adquirir un número NFT de Cryptonumber es muy sencillo,
                     hemos pensado como sería la forma más rápida de hacerlo sin
@@ -270,7 +310,7 @@
                 <v-col
                   cols="8"
                   md="3"
-                  v-for="(item, i) in 3"
+                  v-for="(item, i) in obtenerNum"
                   :key="i"
                   :id="`img--ObtenerNum__pasos-${i}`"
                   class="pa-1 ma-1 fill-height d-flex flex-column img--ObtenerNum__pasos justify-center align-center "
@@ -299,20 +339,25 @@
                               class="pa-0 "
                               :src="require(`@/assets/img-paso-${i + 1}.png`)"
                               alt=""
+                              data-aos="zoom-in"
+                              :data-aos-duration="1000 * (i + 1)"
                             ></v-img>
                           </v-col>
                         </v-row>
                       </div>
-                      <p class="text--card__titulo mt-5 text-left">
-                        Catedral Defi
-                      </p>
+                      <div
+                        v-for="(elem, j) in item.info"
+                        :key="j"
+                        data-aos="zoom-in"
+                        :data-aos-duration="1000 * (j + 1)"
+                      >
+                        <p class="text--card__titulo mt-5 text-left">
+                          {{ elem.titulo }}
+                        </p>
 
-                      <div class="text--card__subtitulo text-left">
-                        Lo primero que necesitarás es tener tokens NMBC en una
-                        cartera compatible con Ethereum (Metamask), por el
-                        momento los puedes adquirir en nuestro grupo de
-                        Telegram, solicítalos y nuestro equipo te los hará
-                        llegar.
+                        <div class="text--card__subtitulo text-left">
+                          {{ elem.description }}
+                        </div>
                       </div>
                     </v-card-text>
                     <v-card-actions> </v-card-actions>
@@ -344,28 +389,53 @@
     </section>
 
     <!-- section 4 -->
-    <v-img :src="require('@/assets/background-4.png')" alt="">
+    <section class="section__cuatro ">
       <v-row
         class=" justify-center align-center  pa-0 ma-0 "
         style="width:100%; "
       >
-        <v-col cols="12" md="12" class="pa-2  mt-14 ma-2 ">
+        <v-col cols="12" md="12" class="pa-2 mt-14 ma-2 ">
           <v-row
             wrap
             class="justify-center align-center text-center pa-0 ma-0 "
             style="width:100%; "
           >
-            <v-col cols="10" md="5" class="pa-2  mt-15 ma-2 ">
+            <v-col
+              cols="8"
+              md="5"
+              class="pa-2  mt-15  "
+              data-aos="slide-left"
+              data-aos-duration="4000"
+            >
+              <!-- <div class="image__section4--info"></div> -->
               <v-img
-                
+                contain
+                class=""
+                style=" width: 565px; "
                 :src="require('@/assets/img-cryptonumber-02.png')"
                 alt=""
               >
               </v-img>
             </v-col>
-            <v-col cols="9" md="4" class="pa-0  ma-0 ">
-              <v-row class="justify-center" style="width:100%; ">
-                <v-col cols="10" md="11" style="" class="pa-0 ma-2 text-left ">
+            <v-col
+              cols="9"
+              md="4"
+              class="pa-0  ma-0 "
+              data-aos="fade-right"
+              data-aos-duration="7000"
+            >
+              <v-row
+                :class="{ 'ml-10': $vuetify.breakpoint.smAndUp }"
+                class="justify-center "
+                style="width:100%; "
+              >
+                <v-col
+                  :class="{ 'mt-15': $vuetify.breakpoint.xsOnly }"
+                  cols="10"
+                  md="11"
+                  style=""
+                  class="pa-0 ma-2 text-left  "
+                >
                   <span class="sectionfour__sub--titulo  ">
                     Números NFT
                   </span>
@@ -379,7 +449,7 @@
                   </span>
                 </v-col>
                 <v-col cols="12" md="11" style="" class="pa-0 ma-3 text-left ">
-                  <span class="">
+                  <span class="white--text">
                     Números NFT
                   </span>
                 </v-col>
@@ -390,7 +460,7 @@
                   </span>
                 </v-col>
                 <v-col cols="12" md="11" style="" class="pa-0 ma-3 text-left ">
-                  <span class="">
+                  <span class="white--text">
                     Números NFT
                   </span>
                 </v-col>
@@ -404,26 +474,43 @@
                 </v-col>
               </v-row>
             </v-col>
+          </v-row>
+        </v-col>
+        <v-col cols="12" md="12" class="pa-2 mt-1 ma-2 ">
+          <!-- separador -->
 
-            <!-- separador -->
-             <v-row
+          <v-row
             wrap
             class="justify-center align-center text-center pa-0 ma-0 "
             style="width:100%; "
           >
-            <v-col cols="12" md="5" class="pa-2   ma-2 ">
-              <v-spacer></v-spacer>
-            </v-col>
-             </v-row>
-
-            <v-col cols="10" md="5" class="pa-0  ma-0 ">
-              <v-row class="" style="width:100%; ">
+            <v-col
+              cols="9"
+              md="5"
+              class="pa-0  ma-0 "
+              :class="{ 'mt-15': $vuetify.breakpoint.xsOnly }"
+              
+            >
+              <v-row class="" style="width:100%; " data-aos="fade-right"
+              data-aos-duration="3000">
                 <v-col cols="12" md="11" style="" class="pa-0 ma-2 text-left ">
-                  <span class="sectionfour__sub--titulo  ml-2">
+                  <span
+                    class="sectionfour__sub--titulo"
+                    :class="{ 'ml-2': $vuetify.breakpoint.smAndUp }"
+                  >
                     Distribución de tokens
                   </span>
                 </v-col>
-                <v-col cols="12" md="10" style="" class="ml-5 pa-0 ma-0 text-left ">
+                <v-col
+                  cols="12"
+                  md="10"
+                  style=""
+                  :class="{
+                    'ml-5': $vuetify.breakpoint.smAndUp,
+                    'mt-5': $vuetify.breakpoint.xsOnly,
+                  }"
+                  class=" pa-0 ma-0 text-left "
+                >
                   <span class="pa-0 ma-0 text--card__subtitulo">
                     Lorem ipsum 100.000.000 NMBC, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -431,60 +518,64 @@
                     ullamco laboris nisi.
                   </span>
                 </v-col>
-             
-                <v-col
-                  cols="12"
-                  md="12"
-                  style=""
-                  class="pa-0 ma-0  text-left "
-                >
+
+                <v-col cols="12" md="12" style="" class="pa-0 ma-0  text-left ">
                   <v-card
-                 class="mx-auto text-left align-left elevation-0"
-                color="transparent"
-                tile
-                :ripple="offRipple"
-                :hover="offRipple"
-              >
-                  <v-list  :hover="offRipple" :ripple="offRipple" color="transparent" class="text-left  align-left ">
-                    <v-list-item-group class="text-left align-left">
-                      <v-list-item
-                        v-for="(item, i) in infoTokens"
-                        :key="i"
-                        class="text-left align-left" 
-                        :ripple="offRipple"
-                         :hover="offRipple"
-                      >
-                            <v-list-item-content class="">
-                              <v-badge
-                                  v-for="(color, index) in item.color"
-                                  :key="index"
-                                  inline
-                                  left
-                                  dot
-                                  :color="color"
-                                  class="align-left justify-start" 
-                              >
-                                <span class="texto__info--tokes ml-2 ma-1">{{
-                                       item.textoTokens[index]}}
-                                </span>
-                              </v-badge>
-                            </v-list-item-content>
-                          </v-list-item>
-                        </v-list-item-group>
-                  </v-list>
-                  </v-card> 
+                    class="mx-auto text-left align-left elevation-0"
+                    color="transparent"
+                    tile
+                    :ripple="offRipple"
+                    :hover="offRipple"
+                  >
+                    <v-list
+                      :hover="offRipple"
+                      :ripple="offRipple"
+                      color="transparent"
+                      class="text-left  align-left "
+                    >
+                      <v-list-item-group class="text-left align-left">
+                        <v-list-item
+                          v-for="(item, i) in infoTokens"
+                          :key="i"
+                          class="text-left align-left"
+                          :ripple="offRipple"
+                          :hover="offRipple"
+                        >
+                          <v-list-item-content class="">
+                            <v-badge
+                              v-for="(color, index) in item.color"
+                              :key="index"
+                              inline
+                              left
+                              dot
+                              :color="color"
+                              class="align-left justify-start"
+                            >
+                              <span class="texto__info--tokes ml-2 ma-1"
+                                >{{ item.textoTokens[index] }}
+                              </span>
+                            </v-badge>
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list-item-group>
+                    </v-list>
+                  </v-card>
                 </v-col>
               </v-row>
             </v-col>
+
             <v-col
-              cols="12"
+              cols="8"
               md="4"
-              class="mt-15 ma-2 align-center d-flex  justify-center text-center"
+              :class="{ 'mt-15': $vuetify.breakpoint.smAndUp }"
+              data-aos="fade-left"
+              data-aos-duration="2000"
+              class=" ma-2 align-center d-flex  justify-center text-center"
             >
               <v-img
                 contain
                 class=""
-                style=" width: 465px;height: 671px;"
+                style=" width: 465px; "
                 :src="require('@/assets/img-cryptonumber-03.png')"
                 alt=""
               >
@@ -493,182 +584,309 @@
           </v-row>
         </v-col>
       </v-row>
+
+      <section class="section__cinco">
+        <v-row
+          class=" mt-0 justify-center align-center"
+          wrap
+          style="width:100%; position:relative;  "
+
           
+        >
+          <v-col
+            cols="12"
+            md="12"
+            class="pa-0 ma-0 fill-height d-flex flex-column justify-center align-center "
+          >
+            <span class="sectionfour__sub--titulo">
+              Cryptonumbers Roadmap
+            </span>
+          </v-col>
 
-              <v-img class="pa-0 ma-0" :src="require('@/assets/background-4-copy.png')" alt="">
-             <v-row class=" justify-center align-center" style="width:100%; ">
-                <v-col cols="12" md="9" style="" class=" d-flex align-center justify-center pa-0 ma-2   ">
-
-  
-<v-carousel
-    cycle
-    hide-delimiter-background
-    height="300"
-  >
-    <v-carousel-item v-for="(slide, i) in slides" :key="i">
-            <v-row class="ma-4 justify-center">
-                <v-col :id="`cards--carousel-items`" cols="3" v-for="(images, j) in slide.images" :key="j" class="card--carousel__item pa-2 ma-2 elevation-1 d-flex flex-column justify-center align-center" style="height:200px; ">
-                      <div class="d-flex flex-column justify-center align-center">
-                            <span class="mx-auto text-center caption">{{ images.caption }}</span>
-                      </div>
+               <v-row class="justify-center align-center pa-0 ma-0 absolute mt-15" 
+                v-if="$vuetify.breakpoint.mdAndUp || $vuetify.breakpoint.xsOnly"
+               >
+                  <v-col cols="5" md="4" class=" pa-0 ma-0  d-flex justify-space-between" style="top:100px; ">
+                    <span v-for="(color, index) in 3"
+                              :key="index" class=" texto--slide-top" >F1</span>
+                   
                   </v-col>
-            </v-row>
-      </v-carousel-item>
-  </v-carousel>
-               
-                </v-col>
-              
-             </v-row>
-      </v-img>
-    </v-img>
-
-    <!-- fin section 4 -->
-    
-    <!-- section 5 -->
-    <section
-      id="cabecera"
-      style="background:#17191e; width:100%; height:100%;"
-    >
-    
-    <v-row class="   justify-center" style="width:100%; ">
-                <v-col
-                  cols="12"
-                  md="12"
-                  class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
-                >
-                  <span class="tituloPortada__sectionThree  ma-2">
-                    ¿Cómo obtener mi número?
-                  </span>
-            </v-col>
-
+                </v-row>
+          <v-col
+            cols="12"
+            md="12"
+            style=""
+            class=" mt-10  d-flex align-center justify-center pa-0 ma-2   "
+          >
+            <v-row
+              class="align-center justify-center pa-0 ma-0"
+              style="width:100%; "
+            >
 
               <v-col
-                  cols="12"
-                  md="8"
-                  class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
+                cols="10"
+                md="6"
+                class="d-flex   pa-0 ma-0 justify-space-between"
+              >
+                <v-btn
+                  color="#1b1d22"
+                  x-small
+                  fab
+                  class="borde#1b1d22-1"
+                  style="border:1px solid #d5d5d5;"
                 >
+                  <v-icon color="#d5d5d5">$prev</v-icon>
+                </v-btn>
 
-               <v-row> 
-             <v-col
-                  cols="12"
-                  md="4"
-                    v-for="(item, i) in 6"
-              :key="i"
-                  class="pa-0 ma-0  mt-5 fill-height d-flex flex-column justify-center align-center "
+
+
+                
+                <v-divider
+                  absolute
+                  class="mx-1 mt-4"
+                  color="#d5d5d5"
                 >
+                
+                
+                </v-divider>
 
-                 <v-card
-                    class=" elevation-0 pa-0 ma-0"
-                    max-width="344"
-                    color="transparent"
-                  >
-                    <v-card-text
-                      class="text-left align-center   justify-center "
+                <v-btn
+                  x-small
+                  color="#1b1d22"
+                  fab
+                  style="border:1px solid #d5d5d5;"
+                >
+                  <v-icon color="#d5d5d5">$next</v-icon>
+                </v-btn>
+              </v-col>
+
+              <v-col cols="12" md="8" sm="10" class="  pa-0 ma-0" style="">
+                <v-carousel
+                  cycle
+                  hide-delimiter-background
+                  height="300"
+                  class=""
+                  :show-arrows="false"
+                >
+                  <v-carousel-item v-for="(slide, i) in slides" :key="i" class="pa-0 ma-0">
+                    <v-row
+                      class=" justify-center"
+                      :class="{
+                        'ma-4': $vuetify.breakpoint.smAndUp,
+                        'mt-2 pa-0 ma-0': $vuetify.breakpoint.xsOnly,
+                      }"
                     >
-                      <div style="width:100%;" class="text-center align-center ">
-                        <v-row
-                          class=" pa-0 ma-0 mt-2 justify-center"
-                          style="width:100%; "
-                        >
-                          <v-col
-                            cols="12"
-                            md="12"
-                            class="pa-0  fill-height d-flex flex-column justify-center align-center"
-                          >
-                            <v-img
-                              width="230px"
-                              height="230px"
-                              class="pa-0 "
-                              :src="require(`@/assets/user-img.png`)"
-                              alt=""
-                            ></v-img>
-                          </v-col>
-                        </v-row>
-                      </div>
-                      <p class="text--card__titulo mt-2 text-center">
-                        Nombre
-                      </p>
-
-                      <p class="text--card__subtitulo text-center pa-0 ma-0">
-                       cargo
-                      </p>
-                    </v-card-text>
-                    <v-card-actions> </v-card-actions>
-                  </v-card>
-             </v-col>
-               </v-row>
- </v-col>
-    </v-row>
-        <v-img  :src="require('@/assets/img/background-4-copy.png')" alt="">
-      <v-row
-        class=" justify-center align-center  pa-0 ma-0 "
-        style="width:100%; "
-      >
-      <v-spacer></v-spacer>
-        <v-col cols="12" md="12" class="pa-2  mt-14 ma-2 ">
-
-             <v-row class="justify-center" style="width:100%; ">
-                <v-col
-                  cols="12"
-                  md="12"
-                  class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
-                >
-                  <span class="tituloPortada__sectionThree  ma-2">
-                    FAQ
-                  </span>
-                </v-col>
-             </v-row>
-
-
-
-            <v-row class="   justify-center" style="width:100%; ">
-                <v-col
-                  cols="12"
-                  md="7"
-                  class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
-                >
-             <v-expansion-panels
-                    style="background:#1b1d22; border-bottom:1px solid #fff;"
-                    class="elevation-0 rounded-0 mt-10"
-                  >
-                    <v-expansion-panel
-                      style="border-top:1px solid #fff; background:#1b1d22;color:white"
-                      v-for="(item, i) in faq"
-                      :key="i"
-                      dark
-                      class="elevation-0"
-                    >
-                      <v-expansion-panel-header
-                        dark
-                        class="texto--panelsExpande text-uppercase"
+                      <v-col
+                        class="text-center align-center"
+                        cols="3"
+                        v-for="(images, j) in slide.images"
+                        :key="j"
                       >
-                        <template v-slot:actions>
-                          <v-icon color="primary">
-                            $expand
-                          </v-icon>
-                        </template>
-                        {{ item.pregunta }}
-                      </v-expansion-panel-header>
-                      <v-expansion-panel-content style="font-weight:300;">
-                        {{ item.respuesta }}
-                      </v-expansion-panel-content>
-                    </v-expansion-panel>
-                  </v-expansion-panels>
-                </v-col>
+                        <v-divider
+                          vertical
+                          absolute
+                          class=" mt-4"
+                          color="#243ffa"
+                          style="position:absolute; width:30px; top:-95px;"
+                        >
+                        </v-divider>
+                        <span  v-if="$vuetify.breakpoint.mdAndUp || $vuetify.breakpoint.xsOnly" id="cards--carousel-items"></span>
+                      </v-col>
+                    </v-row>
+                    <v-row
+                      class=" justify-center"
+                      :class="{
+                        'ma-4': $vuetify.breakpoint.smAndUp,
+                        'mt-2 ': $vuetify.breakpoint.xsOnly,
+                      }"
+                    >
+                      <v-col
+                        cols="3"
+                        v-for="(images, j) in slide.images"
+                        :key="j"
+                        class="card--carousel__item pa-0 ma-1 elevation-1 d-flex flex-column justify-center align-center"
+                        style="height:190px; "
+                      >
+                        <div
+                          class="d-flex flex-column justify-center align-center pa-0 ma-0"
+                        >
+                          <span class="pa-0 ma-0 text-center caption d-flex justify-center align-center">
+                           <v-col cols="7" sm="12" class="pa-0 ma-0 text-center" style="">
+
+                  							<v-list-item three-line class="ma-0 pa-0  "  style="width:100%; text-align:left;">
+                  								<v-list-item-content class="pa-2 ma-1 ">
+
+                                    <v-list-item-title class="texto--slide__interno" v-html="images.caption"></v-list-item-title>
+                                    <div style="line-height:12px;">
+                                    <v-list-item-subtitle class="texto--slide--list mt-1 white--text"  v-html="images.text1[0]">-</v-list-item-subtitle>
+                                    <v-list-item-subtitle class="texto--slide--list mt-1 white--text"  v-html="images.text2[0]">-</v-list-item-subtitle>
+                  									</div>
+                  								</v-list-item-content>
+                  							</v-list-item>
+                  						</v-col>
+                          
+                          </span>
+                        </div>
+                      </v-col>
+                    </v-row>
+                  </v-carousel-item>
+                </v-carousel>
+              </v-col>
             </v-row>
+          </v-col>
+        </v-row>
+      </section>
+      <!-- fin section 5 -->
+    </section>
+    <!-- fin section 4 -->
+    <!-- section 5 -->
+    <section id="cabecera" style="background:#17191e; width:100%; height:100%;">
+      <v-row class="justify-center" style="width:100%; ">
+        <v-col
+          cols="12"
+          md="12"
+          class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
+        >
+          <v-row
+            class="justify-center align-center text-center"
+            style="width:100%; "
+          >
+            <v-col
+              cols="12"
+              md="12"
+              class="pa-0 ma-0  mt-15 text-center #1b1d22 fill-height d-flex flex-column justify-center align-center "
+            >
+            </v-col>
+            <span class="sectionfour__sub--titulo">
+              El Equipo
+            </span>
+          </v-row>
+        </v-col>
 
-
-
+        <v-col
+          cols="12"
+          md="8"
+          class="pa-0 ma-0  mt-5 fill-height d-flex flex-column justify-center align-center "
+        >
+          <v-row>
+            <v-col
+              cols="6"
+              md="4"
+              sm="4"
+              v-for="(item, i) in 6"
+              :key="i"
+              class="pa-0 ma-0  mt-5    justify-center align-center "
+              data-aos="zoom-in"
+                              :data-aos-duration="2500"
+            >
+              <v-card class=" elevation-0 pa-0 ma-0" color="transparent">
+                <v-card-text class="text-left align-center   justify-center ">
+                  <div style="width:100%;" class="text-center align-center ">
+                    <v-row
+                      class=" pa-0 ma-0 mt-2 justify-center"
+                      style="width:100%; "
+                    >
+                      <v-col
+                        cols="9"
+                        md="7"
+                        class="pa-0 fill-height d-flex flex-column justify-center align-center"
+                      >
+                        <v-img
+                          contain
+                          class="pa-0 "
+                          :src="require(`@/assets/user-img.png`)"
+                          alt=""
+                        ></v-img>
+                      </v-col>
+                    </v-row>
+                  </div>
+                  <div class="text--card__titulo mt-2 text-center">
+                    Nombre
+                    <p class="text--card__subtitulo text-center pa-0 ma-0">
+                      cargo
+                    </p>
+                  </div>
+                </v-card-text>
+                <v-spacer></v-spacer>
+                <v-card-actions> </v-card-actions>
+              </v-card>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
-    </v-img>
+      <v-img :src="require('@/assets/img/background-4-copy.png')" alt="">
+        <v-row
+          class=" justify-center align-center  pa-0 ma-0 "
+          style="width:100%; "
+        >
+          <v-spacer></v-spacer>
+          <v-col cols="12" md="12" class="pa-2  mt-14 ma-2 ">
+            <v-row class="justify-center" style="width:100%; ">
+              <v-col
+                cols="12"
+                md="12"
+                class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
+              >
+                <span class="sectionfour__sub--titulo">
+                  FAQ
+                </span>
+              </v-col>
+            </v-row>
+
+            <v-row class="   justify-center" style="width:100%; ">
+              <v-col
+                cols="12"
+                md="7"
+                class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
+              >
+                <v-expansion-panels
+                  style="background:#1b1d22; border-bottom:1px solid #fff;"
+                  class="elevation-0 rounded-0 mt-10"
+                >
+                  <v-expansion-panel
+                    style="border-top:1px solid #fff; background:#1b1d22;color:white"
+                    v-for="(item, i) in faq"
+                    :key="i"
+                    dark
+                    class="elevation-0"
+                  >
+                    <v-expansion-panel-header
+                      dark
+                      class="texto--panelsExpande text-uppercase"
+                    >
+                      <template v-slot:actions>
+                        <v-icon color="primary">
+                          $expand
+                        </v-icon>
+                      </template>
+                      {{ item.pregunta }}
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content style="font-weight:300;">
+                      {{ item.respuesta }}
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
+              </v-col>
+            </v-row>
+
+            <v-row class="justify-center" v-if="$vuetify.breakpoint.xsOnly" style="width:100%; ">
+              <v-col
+                cols="12"
+                md="12"
+                class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
+              >
+                <span class="sectionfour__sub--titulo">
+                  
+                </span>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-img>
     </section>
     <!-- fin section 5 -->
 
-
     <!-- section 4 -->
-
-
   </div>
 </template>
 
@@ -679,47 +897,147 @@ export default {
   components: {},
   data() {
     return {
-      faq:[
-          {
-            pregunta:'¿Puede otro usuario adquirir el mismo número que yo?',
-            respuesta:'Un elemento común de los NMBC con otros tokens no fungibles es que se tratan de elementos individuales irrepetibles. Existen múltiples números para asignar a un contrato, pero cuando uno de ellos es registrado ya no se puede volver a registrar a nombre de otra persona. O sea, solo existe un “10” o un “0407”, y si alguien más quiere adquirir dichos números deberá comprarlos a su propietario o crear uno similar.'
-          },
-           {
-            pregunta:'¿pregunta dos Puede otro usuario adquirir el mismo número que yo?',
-            respuesta:'Un elemento común de los NMBC con otros tokens no fungibles es que se tratan de elementos individuales irrepetibles. Existen múltiples números para asignar a un contrato, pero cuando uno de ellos es registrado ya no se puede volver a registrar a nombre de otra persona. O sea, solo existe un “10” o un “0407”, y si alguien más quiere adquirir dichos números deberá comprarlos a su propietario o crear uno similar.'
-          },      
+      faq: [
+        {
+          pregunta: "¿Puede otro usuario adquirir el mismo número que yo?",
+          respuesta:
+            "Un elemento común de los NMBC con otros tokens no fungibles es que se tratan de elementos individuales irrepetibles. Existen múltiples números para asignar a un contrato, pero cuando uno de ellos es registrado ya no se puede volver a registrar a nombre de otra persona. O sea, solo existe un “10” o un “0407”, y si alguien más quiere adquirir dichos números deberá comprarlos a su propietario o crear uno similar.",
+        },
+        {
+          pregunta: "¿Puede otro usuario adquirir el mismo número que yo?",
+          respuesta:
+            "Un elemento común de los NMBC con otros tokens no fungibles es que se tratan de elementos individuales irrepetibles. Existen múltiples números para asignar a un contrato, pero cuando uno de ellos es registrado ya no se puede volver a registrar a nombre de otra persona. O sea, solo existe un “10” o un “0407”, y si alguien más quiere adquirir dichos números deberá comprarlos a su propietario o crear uno similar.",
+        },
       ],
-       colors: [
-          'indigo',
-          'warning',
-          'pink darken-2',
-          'red lighten-1',
-          'deep-purple accent-4',
-        ],
-       slides: [
-      {
-        images: [
-          { caption: "Shopping-Page"},
-          { caption: "Cart-Page" },
-          { caption: "main-Page" }
-        ],
-      },
-          {
-        images: [
-          { caption: "Shopping-Page"},
-          { caption: "Cart-Page" },
-          { caption: "main-Page" }
-        ],
-      },
-       {
-        images: [
-          { caption: "Shopping-Page"},
-          { caption: "Cart-Page" },
-          { caption: "main-Page" }
-        ],
-      }
-       ],
-      offRipple:false,
+      colors: [
+        "indigo",
+        "warning",
+        "pink darken-2",
+        "#1b1d22 lighten-1",
+        "deep-purple accent-4",
+      ],
+      obtenerNum: [
+        {
+          info: [
+            { titulo: "Adquirir NMBC" },
+            {
+              description:
+                "Lo primero que necesitarás es tener tokens NMBC en una cartera compatible con Ethereum (Metamask), por el momento los puedes adquirir en nuestro grupo de Telegram, solicítalos y nuestro equipo te los hará llegar.",
+            },
+          ],
+        },
+        {
+          info: [
+            { titulo: "Buscar Número" },
+            {
+              description:
+                "Entra en la dAPP y realiza una búsqueda del número que deseas obtener, también tenemos una sección de números premiums. No olvides conectar primero tu wallet, por el momento solo es compatible con Metamask.",
+            },
+          ],
+        },
+        {
+          info: [
+            { titulo: "Obtener Número" },
+            {
+              description:
+                "Y por último, si tu número está disponible en los resultados de búsqueda, podrás adquilirlos haciendo uso de nuestro token nativo NMBC, al obtener el NFT lo padrás ver en tu cartera y en la sección “Mis Números”.",
+            },
+          ],
+        },
+      ],
+      cardinfo: [
+        {
+          images: [
+            { src: require("@/assets/icon-defi.png") },
+            { caption: "Colateral DeFi" },
+            {
+              text:
+                "Úsalo como colateral en cualquier plataforma que aceptén tokens NFT como aval para finanzas descentralizadas.",
+            },
+          ],
+        },
+        {
+          images: [
+            { src: require("@/assets/icon-acceso.png") },
+            { caption: "Acceso" },
+            {
+              text:
+                "Los Números Premium te darán acceso prioritario en la venta privada de NMBC y en otros proyectos que decidan participar.",
+            },
+          ],
+        },
+        {
+          images: [
+            { src: require("@/assets/icon-regala-prox.png") },
+            { caption: "Regala tu número" },
+            {
+              text:
+                "Puedes regalar el número que quieras a una persona importante, solo tienes que enviarlo a su adrres a coste 0.",
+            },
+          ],
+        },
+        {
+          images: [
+            { src: require("@/assets/icon-vende-prox.png") },
+            { caption: "Vende tu número" },
+            {
+              text:
+                "Lo pordrás vender directamete en Cryptonumbers, o si lo prefieres enviarlo directamente a Opensea para su venta o subasta.",
+            },
+          ],
+        },
+        {
+          images: [
+            { src: require("@/assets/icon-batallas-prox.png") },
+            { caption: "Batallas NFTs" },
+            {
+              text:
+                "Retos divertidos de juegos de habilidad, el ganador se lleva como recompensa el NFT del adversario.",
+            },
+          ],
+        },
+        {
+          images: [
+            { src: require("@/assets/icon-alquiler-prox.png") },
+            { caption: "Colateral DeFi" },
+            {
+              text:
+                "Úsalo como colateral en cualquier plataforma que aceptén tokens NFT como aval para finanzas descentralizadas.",
+            },
+          ],
+        },
+      ],
+      slides: [
+        {
+          images: [
+            { caption: "Presentación del proyecto", text1: ['· Creación de identidad corporativa'], text2: ['· Creación de web corporativa'] },
+            { caption: "WEB3", text1: ['· Integracion frontend con dAPP'], text2: ['· Pruebas testeo.'] },
+            { caption: "Testnet", text1: ['· Airdrop NMBC mediante telegram'], text2: ['· Pruebas en tesnet con la comunidad'] },
+          ],
+        },
+        {
+          images: [
+             { caption: "Presentación del proyecto", text1: ['· Creación de identidad corporativa'], text2: ['· Creación de web corporativa'] },
+            { caption: "WEB3", text1: ['· Integracion frontend con dAPP'], text2: ['· Pruebas testeo.'] },
+            { caption: "Testnet", text1: ['· Airdrop NMBC mediante telegram'], text2: ['· Pruebas en tesnet con la comunidad'] },
+          ],
+        },
+        {
+          images: [
+             { caption: "Presentación del proyecto", text1: ['· Creación de identidad corporativa'], text2: ['· Creación de web corporativa'] },
+            { caption: "WEB3", text1: ['· Integracion frontend con dAPP'], text2: ['· Pruebas testeo.'] },
+            { caption: "Testnet", text1: ['· Airdrop NMBC mediante telegram'], text2: ['· Pruebas en tesnet con la comunidad'] },
+          ],
+        },
+      ],
+      colors: [
+        "indigo",
+        "warning",
+        "pink darken-2",
+        "#1b1d22 lighten-1",
+        "deep-purple accent-4",
+      ],
+      offRipple: false,
       Crytonumero: "",
       infoCrypto: ["¿Qué es Cryptonumbers?", "¿Qué es NMBC?"],
       Inforelleno: [
@@ -729,7 +1047,7 @@ export default {
       titulo: " El Primer Metaverso de los Números",
       subtitulo: " Crea Tu Número Preferido En Un NFT<br> y sácale rendimiento",
       description:
-        " Cryptonumbers y su token NMBC, crea el  único contrato que certifica tu propiedad del <br>número NFT que elijas dentro de la red Ethereum. La fecha del cumpleaños de tu hijo, el <br>número de tu jugador favorito, tu número de la suerte pueden ser parte de tu catálogo de<br> números exclusivos",
+        " Cryptonumbers y su token NMBC, crea el  único contrato que certifica tu propiedad del <br>número NFT que elijas dentro de la #1b1d22 Ethereum. La fecha del cumpleaños de tu hijo, el <br>número de tu jugador favorito, tu número de la suerte pueden ser parte de tu catálogo de<br> números exclusivos",
       infoTokens: [
         {
           textoTokens: [
@@ -746,22 +1064,106 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
-#cards--carousel-items::after{
-   content: "____";
-  width: 1px;
-  height: 57px;
-  position: absolute;
-
-background:  var(--corporativ-1);
-transform: rotate(90deg);
-top: 100px;
-left: 23%;
+.portada {
+  background-image: url("../assets/portada-main.png");
+  background-size: contain;
 }
-.card--carousel__item{
-   border-radius: 11px;
+
+.section__dos {
+  background-image: url("../assets/background-2.png");
+  background-size: contain;
+}
+
+.section__tres {
+  background-image: url("../assets/background-3.png");
+  background-size: cover;
+  
+}
+
+.section__cuatro {
+  background-image: url("../assets/background-4.png");
+  background-size: contain;
+}
+
+.image__section4--info {
+  background-image: url("../assets/img-cryptonumber-02.png");
+  background-size: cover;
+  width: 536px;
+  height: 433px;
+  object-fit: contain;
+}
+
+.section__cinco {
+  background-image: url("../assets/background-4-copy.png");
+  background-size: cover;
+}
+@media (min-width: 480px) {
+#cards--carousel-items {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #243ffa;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 0px;
+  margin-left: 93px;
+  margin-top: 0px;
+  z-index: 1000;
+}
+}
+
+.texto--slide--list{
+   font-family: Ubuntu;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.65;
+  letter-spacing: 0.21px;
+  color: #fff;
+}
+.texto--slide__interno{
+   font-family: Ubuntu;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.65;
+  letter-spacing: 0.21px;
+  color: #fff
+}
+
+.texto--slide-top{
+   font-family: Ubuntu;
+  font-size: 17px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #243ffa;
+}
+@media (max-width: 480px) {
+  #cards--carousel-items {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #243ffa;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 0px;
+  margin-left: 28px;
+  margin-top: -0px;
+  z-index: 1000;
+}
+}
+.card--carousel__item {
+  border-radius: 11px;
   border: solid 1px #d5d5d5;
   background-color: #1d1f24;
+  transform: rotate(360deg);
 }
 .texto__info--tokes {
   font-family: Ubuntu;
@@ -773,7 +1175,7 @@ left: 23%;
   letter-spacing: 0.21px;
   color: #fff;
 }
-.sectionfour__sub--titulo{
+.sectionfour__sub--titulo {
   font-family: Ubuntu;
   font-size: 30px;
   font-weight: 500;
@@ -783,14 +1185,26 @@ left: 23%;
   letter-spacing: 0.45px;
   color: #fff;
 }
-#img--ObtenerNum__pasos-0::after,
-#img--ObtenerNum__pasos-1::after {
-  content: url("../assets/stroke-1-copy-2.png"); /* with class ModalCarrot ??*/
-  position: relative; /*or absolute*/
-  z-index: 100000; /*a number that's more than the modal box*/
-  left: 138px;
-  top: -300px;
+
+@media (min-width: 480px) {
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+  #img--ObtenerNum__pasos-0::after,
+  #img--ObtenerNum__pasos-1::after {
+    content: url("../assets/stroke-1-copy-2.png"); /* with class ModalCarrot ??*/
+    position: relative; /*or absolute*/
+    z-index: 100000; /*a number that's more than the modal box*/
+    left: 138px;
+    top: -300px;
+  }
 }
+@media (max-width: 580px) {
+  /* smartphones, Android phones, landscape iPho*/
+  #img--ObtenerNum__pasos-0::after,
+  #img--ObtenerNum__pasos-1::after {
+    display: none;
+  }
+}
+
 .text--card__subtitulo {
   font-family: Ubuntu;
   font-size: 13px;
@@ -865,7 +1279,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 .custom-placeholer-color input::placeholder {
-  color: red !important;
+  color: #1b1d22 !important;
   opacity: 1;
 }
 
@@ -880,7 +1294,7 @@ input[type="number"] {
   color: #fff;
 }
 .custom-label-color .v-label {
-  color: red;
+  color: #1b1d22;
   opacity: 1;
 }
 .btn--search {
