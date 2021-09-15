@@ -404,8 +404,8 @@
               cols="8"
               md="5"
               class="pa-2  mt-15  "
-              data-aos="slide-left"
-              data-aos-duration="4000"
+              data-aos="fade-left"
+              data-aos-duration="2500"
             >
               <!-- <div class="image__section4--info"></div> -->
               <v-img
@@ -422,7 +422,7 @@
               md="4"
               class="pa-0  ma-0 "
               data-aos="fade-right"
-              data-aos-duration="7000"
+              data-aos-duration="2500"
             >
               <v-row
                 :class="{ 'ml-10': $vuetify.breakpoint.smAndUp }"
@@ -476,23 +476,58 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="12" md="12" class="pa-2 mt-1 ma-2 ">
+        <v-col cols="12" md="12" class="pa-2  mt-1 ma-2 ">
           <!-- separador -->
 
           <v-row
-            wrap
-            class="justify-center align-center text-center pa-0 ma-0 "
+            class="  pa-0 ma-0  justify-center"
+            style="width:100%; "
+          >
+
+           <v-col
+              cols="12"
+              md="9"
+              class="pa-0  ma-0  "
+              style=""
+             
+            >  
+
+             <v-row
+            class="  pa-0 ma-0 justify-center"
             style="width:100%; "
           >
             <v-col
-              cols="9"
-              md="5"
-              class="pa-0  ma-0 "
-              :class="{ 'mt-15': $vuetify.breakpoint.xsOnly }"
+              cols="10"
+              md="6"
+              class="pa-0  ma-0  "
+              style=""
+              
               
             >
-              <v-row class="" style="width:100%; " data-aos="fade-right"
-              data-aos-duration="3000">
+
+                 <v-row class=" ">
+                      <v-col cols="12" md="11" style="height:80px;" class="  pa-3 ma-2 text-left ">
+                  <v-spacer></v-spacer>
+                </v-col>
+
+                  <v-col cols="12" md="11" style="" class="  pa-0 ma-2 text-left ">
+                  
+            
+                </v-col>
+                
+                </v-row>
+
+                 <v-row class="">
+                      <v-col cols="12" md="11" style="height:80px;" class="  pa-3 ma-2 text-left ">
+                  <v-spacer></v-spacer>
+                </v-col>
+
+                  <v-col cols="12" md="11" style="" class=" pa-0 ma-2 text-left ">
+                  <v-row class="" style="width:100%; "
+                  data-aos="fade-right"
+              data-aos-duration="2000"
+                   >
+                
                 <v-col cols="12" md="11" style="" class="pa-0 ma-2 text-left ">
                   <span
                     class="sectionfour__sub--titulo"
@@ -528,6 +563,8 @@
                     :hover="offRipple"
                   >
                     <v-list
+
+                    three-line
                       :hover="offRipple"
                       :ripple="offRipple"
                       color="transparent"
@@ -561,16 +598,34 @@
                     </v-list>
                   </v-card>
                 </v-col>
-              </v-row>
+              </v-row> 
+            
+                </v-col>
+                
+                </v-row>
+
+<v-row class=" ">
+                      <v-col cols="12" md="11" style="height:100px;" class="  pa-3 ma-2 text-left ">
+                  <v-spacer></v-spacer>
+                </v-col>
+
+                  <v-col cols="12" md="11" style="" class="  pa-0 ma-2 text-left ">
+                  
+            
+                </v-col>
+                
+                </v-row>
+
+             <!--   -->
             </v-col>
 
             <v-col
               cols="8"
-              md="4"
-              :class="{ 'mt-15': $vuetify.breakpoint.smAndUp }"
+              md="5"
+              :class="{ 'mt-0': $vuetify.breakpoint.smAndUp }"
               data-aos="fade-left"
               data-aos-duration="2000"
-              class=" ma-2 align-center d-flex  justify-center text-center"
+              class="  ma-2 align-center d-flex  justify-center text-center"
             >
               <v-img
                 contain
@@ -581,6 +636,8 @@
               >
               </v-img>
             </v-col>
+             </v-row>
+           </v-col>
           </v-row>
         </v-col>
       </v-row>
