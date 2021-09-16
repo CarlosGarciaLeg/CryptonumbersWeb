@@ -15,6 +15,30 @@ Vue.component("header-app", header);
 import footer from '@/components/footer'
 Vue.component("footer-app", footer);
 
+// Section-uno
+import sectionUno from '@/components/SectionUno'
+Vue.component("sectionUno", sectionUno);
+
+// Section-dos
+import sectionDos from '@/components/SectionDos'
+Vue.component("sectionDos", sectionDos);
+
+// Section-tres
+import sectionTres from '@/components/SectionTres'
+Vue.component("sectionTres", sectionTres);
+
+// Section-cuatro
+import sectionCuatro from '@/components/SectionCuatro'
+Vue.component("sectionCuatro", sectionCuatro);
+
+// Section-cinco
+import sectionCinco from '@/components/SectionCinco'
+Vue.component("sectionCinco", sectionCinco);
+
+// Section-seis
+import sectionSeis from '@/components/SectionSeis'
+Vue.component("sectionSeis", sectionSeis);
+
 new Vue({
   router,
   store,
@@ -30,7 +54,6 @@ new Vue({
       disableMutationObserver: false, // disables automatic mutations' detections (advanced)
       debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
       throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-  
       // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
       offset: 120, // offset (in px) from the original trigger point
       delay: 0, // values from 0 to 3000, with step 50ms
