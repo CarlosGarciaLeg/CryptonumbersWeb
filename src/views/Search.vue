@@ -153,7 +153,7 @@
                                   <v-btn
                                     color="#0e41ff"
                                     class="rounded-5 mt-1  pa-0 ma-0 btn--search white--text "
-                                    
+                                    @click="activarModal()"
                                     width="180"
                                      style="font-family: Roboto; color:white; font-weight: 500; font-size:14px; text-transform: unset !important; "
                                   >
