@@ -68,7 +68,7 @@
             </v-btn>
           </v-col>
           <v-col    v-if="$vuetify.breakpoint.smAndUp " cols="3" sm="3" lg="3" class="pa-2 ma-2 elevation-0">
-            <v-menu offset-y dark class="pa-0 ma-0">
+            <v-menu offset-y dark>
               <template v-slot:activator="{ attrs, on }">
                 <v-btn class="white--text " v-bind="attrs" v-on="on" dark>
                   ES
@@ -78,8 +78,8 @@
                 </v-btn>
               </template>
               <v-list light class="pa-0 ma-0 rounded-0">
-                <v-list-item link class="rounded-0 pa-0 ma-0">
-                  <v-list-item-title class="rounded-0 pa-0 ma-0 texto__expande" 
+                <v-list-item link class="rounded-0 ">
+                  <v-list-item-title class="rounded-0  texto__expande" 
                     >EN</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -205,11 +205,11 @@ export default {
       ],
       urlNavigation:[
         '/',
-        'conocenos',
+        '/',
         'tokenomic',
-        'equipo',
+        '/',
         'roadmap',
-        'faq',
+        '/',
         'whiterpapper'
       ]
     };

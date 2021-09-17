@@ -21,6 +21,7 @@
                 class="tituloPortada__sectionThree  ma-2"
                 data-aos="fade-up"
                 data-aos-duration="4000"
+                
               >
                 ¿Cómo obtener mi número?
               </span>
@@ -111,6 +112,7 @@
                     color="#243ffa"
                     max-width="180px"
                     style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
+                    @click="obtenerNumero()"
                   >
                     Obtener Número
                   </v-btn>
@@ -160,6 +162,12 @@
         },
       ],
          }
+     },
+     methods:{
+       obtenerNumero(){
+         return  this.$router.push({ name: 'Search' })
+
+       }
      }   
     }
 </script>

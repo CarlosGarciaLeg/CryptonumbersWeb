@@ -46,6 +46,10 @@ Vue.component("sectionSeis", sectionSeis);
 // modal-app
 import modalApp from '@/components/modal'
 Vue.component("modal-app", modalApp);
+
+// searchBar-app
+import searchBar from '@/components/searchBar'
+Vue.component("search-bar", searchBar);
 new Vue({
   router,
   store,

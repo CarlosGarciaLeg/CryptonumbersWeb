@@ -26,6 +26,10 @@ export default {
 };
 </script>
 <style lang="scss">
+
+input{ 
+margin-left: 10px !important;
+}
 @import "./sass/variables";
 @font-face {
   font-family: Roboto-Medium;
@@ -48,6 +52,7 @@ body, html, .containerr{
   margin: 0;
   padding: 0;
 }
+
 
 ::-webkit-scrollbar {
     background-color: #1b1d22;

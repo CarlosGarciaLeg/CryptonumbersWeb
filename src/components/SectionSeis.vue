@@ -37,7 +37,7 @@
               cols="6"
               md="4"
               sm="4"
-              v-for="(item, i) in 6"
+              v-for="(item, i) in equipo"
               :key="i"
               class="pa-0 ma-0  mt-5    justify-center align-center "
               data-aos="zoom-in"
@@ -65,9 +65,9 @@
                     </v-row>
                   </div>
                   <div class="text--card__titulo mt-2 text-center">
-                    Nombre
+                  {{item.nombre}}-{{i+1}}
                     <p class="text--card__subtitulo text-center pa-0 ma-0">
-                      cargo
+                    {{item.cargo}}
                     </p>
                   </div>
                 </v-card-text>
@@ -159,17 +159,44 @@
      data(){
          return{
              faq: [
-        {
-          pregunta: "¿Puede otro usuario adquirir el mismo número que yo?",
-          respuesta:
-            "Un elemento común de los NMBC con otros tokens no fungibles es que se tratan de elementos individuales irrepetibles. Existen múltiples números para asignar a un contrato, pero cuando uno de ellos es registrado ya no se puede volver a registrar a nombre de otra persona. O sea, solo existe un “10” o un “0407”, y si alguien más quiere adquirir dichos números deberá comprarlos a su propietario o crear uno similar.",
-        },
-        {
-          pregunta: "¿Puede otro usuario adquirir el mismo número que yo?",
-          respuesta:
-            "Un elemento común de los NMBC con otros tokens no fungibles es que se tratan de elementos individuales irrepetibles. Existen múltiples números para asignar a un contrato, pero cuando uno de ellos es registrado ya no se puede volver a registrar a nombre de otra persona. O sea, solo existe un “10” o un “0407”, y si alguien más quiere adquirir dichos números deberá comprarlos a su propietario o crear uno similar.",
-        },
-      ],
+                  {
+                    pregunta: "¿Puede otro usuario adquirir el mismo número que yo?",
+                    respuesta:
+                      "Un elemento común de los NMBC con otros tokens no fungibles es que se tratan de elementos individuales irrepetibles. Existen múltiples números para asignar a un contrato, pero cuando uno de ellos es registrado ya no se puede volver a registrar a nombre de otra persona. O sea, solo existe un “10” o un “0407”, y si alguien más quiere adquirir dichos números deberá comprarlos a su propietario o crear uno similar.",
+                  },
+                  {
+                    pregunta: "¿Puede otro usuario adquirir el mismo número que yo?",
+                    respuesta:
+                      "Un elemento común de los NMBC con otros tokens no fungibles es que se tratan de elementos individuales irrepetibles. Existen múltiples números para asignar a un contrato, pero cuando uno de ellos es registrado ya no se puede volver a registrar a nombre de otra persona. O sea, solo existe un “10” o un “0407”, y si alguien más quiere adquirir dichos números deberá comprarlos a su propietario o crear uno similar.",
+                  },
+              ],
+            equipo:[
+              {
+                nombre:'Nombre',
+                cargo:'Cargo'
+              },
+                {
+                nombre:'Nombre',
+                cargo:'Cargo'
+              },
+                {
+                nombre:'Nombre',
+                cargo:'Cargo'
+              },
+                {
+                nombre:'Nombre',
+                cargo:'Cargo'
+              },
+                {
+                nombre:'Nombre',
+                cargo:'Cargo'
+              },
+                {
+                nombre:'Nombre',
+                cargo:'Cargo'
+              },
+              
+            ]  
          }
      }   
     }

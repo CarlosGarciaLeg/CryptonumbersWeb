@@ -16,29 +16,14 @@ const routes = [
       component: () => import(/* webpackChunkName: "about" */ '../views/Search.vue')
     },
     {
-      path: '/conocenos',
-      name: 'Conocenos',
-      component: () => import(/* webpackChunkName: "about" */ '../views/Conocenos.vue')
-    },
-    {
       path: '/tokenomic',
       name: 'tokenomic',
       component: () => import(/* webpackChunkName: "about" */ '../views/Tokenomic.vue')
     },
     {
-      path: '/equipo',
-      name: 'equipo',
-      component: () => import(/* webpackChunkName: "about" */ '../views/Equipo.vue')
-    },
-    {
       path: '/roadmap',
       name: 'roadmap',
       component: () => import(/* webpackChunkName: "about" */ '../views/Roadmap.vue')
-    },
-    {
-      path: '/faq',
-      name: 'faq',
-      component: () => import(/* webpackChunkName: "about" */ '../views/Faq.vue')
     },
     {
       path: '/whiterpapper',
@@ -57,6 +42,3 @@ const router = new VueRouter({
 })
 
 export default router
-'roadmap',
-'faq',
-'whiterpapper'

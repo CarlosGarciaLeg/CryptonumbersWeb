@@ -11,31 +11,18 @@
     <section-cinco></section-cinco>
 
     <section-seis></section-seis>
-
-    <!-- section 4 -->
   </div>
 </template>
 
 <script>
-import SectionCinco from "../components/SectionCinco.vue";
-import SectionCuatro from "../components/SectionCuatro.vue";
+
 export default {
   name: "Home",
 
-  components: { SectionCuatro, SectionCinco },
+  components: {},
   data() {
-    return {
-      
-      
-    };
+    return {};
   },
 };
 </script>
-<style lang="scss" scoped>
- 
-
-
-
-
-
-</style>
+<style lang="scss" scoped></style>

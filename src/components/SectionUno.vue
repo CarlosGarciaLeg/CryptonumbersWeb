@@ -50,7 +50,7 @@
                         </span>
                       </v-col>
                     </v-row>
-                    <v-row
+                    <!-- <v-row
                       class="mt-8 justify-center pa-0 ma-0 "
                       style="width:100%; "
                     >
@@ -79,7 +79,15 @@
                           </template>
                         </v-text-field>
                       </v-col>
-                    </v-row>
+                    </v-row> -->
+                      <v-row
+                      class="mt-8 justify-center pa-0 ma-0 "
+                      style="width:100%; "
+                    >
+                      <v-col cols="12" md="9" lg="9" class="">
+                    <search-bar></search-bar>
+                      </v-col>
+                      </v-row>
                   </v-col>
                 </v-row>
               </v-col>
