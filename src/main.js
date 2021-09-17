@@ -15,7 +15,7 @@ Vue.component("header-app", header);
 import footer from '@/components/footer'
 Vue.component("footer-app", footer);
 
-// footer
+// header sub - dashboard
 import headerDashboard from '@/components/headerDashboard'
 Vue.component("header-dashboard", headerDashboard);
 
@@ -43,6 +43,9 @@ Vue.component("sectionCinco", sectionCinco);
 import sectionSeis from '@/components/SectionSeis'
 Vue.component("sectionSeis", sectionSeis);
 
+// modal-app
+import modalApp from '@/components/modal'
+Vue.component("modal-app", modalApp);
 new Vue({
   router,
   store,

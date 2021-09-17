@@ -15,6 +15,7 @@
         }"
       >
         <v-spacer></v-spacer>
+        <router-link to="/">
         <img
           :class="{
           'ml-15':  $vuetify.breakpoint.mdAndUp,
@@ -22,8 +23,9 @@
           class="pa-2 ma-2"
           width="200"
           :src="require('@/assets/logo-blanco.png')"
+          
           alt=""
-        />
+        /></router-link>
       </v-col>
 
       <v-col
@@ -34,6 +36,7 @@
         v-if="$vuetify.breakpoint.lgOnly"
         class="mt-3 text-center  ml-5 justify-center"
       >
+      
         <div
           v-for="(elem, item) in rutas"
           :key="item"
@@ -41,7 +44,9 @@
           class=" texto-nav text-uppercase align-center justify-center  pa-1  ma-1"
           style=""
         >
+        <router-link class="texto-nav text-uppercase" :to="urlNavigation[item]">
           {{ elem }}
+          </router-link>
         </div>
         
       </v-col>
@@ -63,7 +68,7 @@
             </v-btn>
           </v-col>
           <v-col    v-if="$vuetify.breakpoint.smAndUp " cols="3" sm="3" lg="3" class="pa-2 ma-2 elevation-0">
-            <v-menu offset-y dark>
+            <v-menu offset-y dark class="pa-0 ma-0">
               <template v-slot:activator="{ attrs, on }">
                 <v-btn class="white--text " v-bind="attrs" v-on="on" dark>
                   ES
@@ -73,8 +78,8 @@
                 </v-btn>
               </template>
               <v-list light class="pa-0 ma-0 rounded-0">
-                <v-list-item link class="rounded-0">
-                  <v-list-item-title class="rounded-0 pa-0 ma-0"
+                <v-list-item link class="rounded-0 pa-0 ma-0">
+                  <v-list-item-title class="rounded-0 pa-0 ma-0 texto__expande" 
                     >EN</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -167,7 +172,7 @@
 
                 <v-list light class="pa-0 ma-0 rounded-0">
                   <v-list-item link class="rounded-0">
-                    <v-list-item-title class="rounded-0 pa-0 ma-0"
+                    <v-list-item-title class="rounded-0 pa-0 ma-0 texto__expande" 
                       >EN</v-list-item-title
                     >
                   </v-list-item>
@@ -198,6 +203,15 @@ export default {
         "faq",
         "whiterpapper",
       ],
+      urlNavigation:[
+        '/',
+        'conocenos',
+        'tokenomic',
+        'equipo',
+        'roadmap',
+        'faq',
+        'whiterpapper'
+      ]
     };
   },
   methods:{
@@ -213,11 +227,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn696 {
+a{
+  text-decoration: none;
+}
+.texto__expande {
+  color: #243ffa;
 }
 .btn--text {
   color: white !important;
 }
+
 
 .texto-nav {
   font-family: Roboto-Medium;

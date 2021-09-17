@@ -3,12 +3,12 @@
     <v-app style="  background: #1b1d22;">
         <v-container fluid ma-0 pa-0>
           <header-app v-if="$route.name != 'Search' && $route.name != 'Landing'"></header-app>
-          <header-dashboard v-if="$route.name == 'Search'"></header-dashboard>
+                <header-dashboard v-if="$route.name == 'Search'"></header-dashboard>
                     <!-- Componente de header -->
                         <!-- <transition name="scroll"> -->
                             <router-view />
                         <!-- </transition> -->
-            <footer-app ></footer-app> 
+                    <footer-app ></footer-app>
         </v-container>
     </v-app>
   </div>
@@ -31,7 +31,6 @@ export default {
   font-family: Roboto-Medium;
   src: url("./assets/fonts/Roboto-Medium.ttf");
 }
-
  .v-carousel__controls{
        padding: 0px;
    }
@@ -46,6 +45,8 @@ body, html, .containerr{
   background: rgba(238, 223, 223, 0);
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 ::-webkit-scrollbar {

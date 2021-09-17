@@ -1,7 +1,7 @@
 <template>
     <div>
           <!-- section dos  -->
-    <div class="section__dos  pa-0 ma-0">
+    <div class="section__dos pa-0 ma-0">
       <v-row
         class=" justify-center align-center  pa-0 ma-0 "
         style="width:100%; "
@@ -9,7 +9,7 @@
         <v-col
           cols="12"
           md="12"
-          class="pa-2  mt-14 ma-2 "
+          class="pa-2 mt-14 ma-2 "
           :class="{ 'mt-15': $vuetify.breakpoint.xsOnly }"
         >
           <v-row
@@ -87,8 +87,8 @@
                  titulo: " El Primer Metaverso de los Números",
                  infoCrypto: ["¿Qué es Cryptonumbers?", "¿Qué es NMBC?"],
                    Inforelleno: [
-        "NumberCoin (NMBC) Es un doble token ERC20 del protocolo Cryptonumbers, tiene la particularidad que mantiene estable el precio de cada nuevo Número NFT creado en la plataforma, (excepto en los números premium) teniendo paridad 1:1 con el Satoshi, de este modo evitamos las temidas burbujas de lanzamiento, lo denominamos “StableNFT”.",
-        "NumberCoin (NMBC) Es un doble token ERC20 del protocolo Cryptonumbers, tiene la particularidad que mantiene estable el precio de cada nuevo Número NFT creado en la plataforma, (excepto en los números premium) teniendo paridad 1:1 con el Satoshi, de este modo evitamos las temidas burbujas de lanzamiento, lo denominamos “StableNFT”.",
+                    "NumberCoin (NMBC) Es un doble token ERC20 del protocolo Cryptonumbers, tiene la particularidad que mantiene estable el precio de cada nuevo Número NFT creado en la plataforma, (excepto en los números premium) teniendo paridad 1:1 con el Satoshi, de este modo evitamos las temidas burbujas de lanzamiento, lo denominamos “StableNFT”.",
+                     "NumberCoin (NMBC) Es un doble token ERC20 del protocolo Cryptonumbers, tiene la particularidad que mantiene estable el precio de cada nuevo Número NFT creado en la plataforma, (excepto en los números premium) teniendo paridad 1:1 con el Satoshi, de este modo evitamos las temidas burbujas de lanzamiento, lo denominamos “StableNFT”.",
       ],
             }
         }
@@ -100,6 +100,7 @@
 .section__dos {
   background-image: url("../assets/background-2.png");
   background-size: contain;
+  width: 100%;
 }
 .sectionTwo__sub--titulo {
   font-family: Ubuntu;

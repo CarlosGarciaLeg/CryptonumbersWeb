@@ -13,10 +13,37 @@ const routes = [
     {
       path: '/search',
       name: 'Search',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ '../views/Search.vue')
+    },
+    {
+      path: '/conocenos',
+      name: 'Conocenos',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Conocenos.vue')
+    },
+    {
+      path: '/tokenomic',
+      name: 'tokenomic',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Tokenomic.vue')
+    },
+    {
+      path: '/equipo',
+      name: 'equipo',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Equipo.vue')
+    },
+    {
+      path: '/roadmap',
+      name: 'roadmap',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Roadmap.vue')
+    },
+    {
+      path: '/faq',
+      name: 'faq',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Faq.vue')
+    },
+    {
+      path: '/whiterpapper',
+      name: 'whiterpapper',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Whiterpapper.vue')
     }
 ]
 
@@ -30,3 +57,6 @@ const router = new VueRouter({
 })
 
 export default router
+'roadmap',
+'faq',
+'whiterpapper'

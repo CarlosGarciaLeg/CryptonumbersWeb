@@ -1,11 +1,13 @@
 <template>
   <div>
-    <section style="background:#141414;">
+    
+    <section style="background:#141414;
+  bottom: 0;  width:100%;">
       <v-row class="  pa-4 ma-1" style="">
         <v-col
           cols="12"
           md="12"
-          class="  justify-center align-center "
+          class=" justify-center align-center "
         >
           <v-row class="justify-center" style="width:100%; ">
             <v-col
