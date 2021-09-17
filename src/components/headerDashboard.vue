@@ -1,6 +1,6 @@
 <template>
-  <v-card style="background-color: rgba(0,0,0,0.0);" flat tile class="elevation-0 header-content">
-    <v-row class="pa-0 ma-0 transparent d-flex "
+  <v-card color="#1b1d22" flat tile class="elevation-0 header-content">
+    <v-row class="pa-0 ma-0  d-flex justify-space-between"
    
     >
       <v-col
@@ -21,36 +21,18 @@
         }"
           class="pa-2 ma-2"
           width="200"
-          :src="require('@/assets/logo-blanco.png')"
+          :src="require('@/assets/logo-azul-blanco.png')"
           alt=""
         />
       </v-col>
 
-      <v-col
-        cols="12"
-        md="6"
-        xs="12"
-        lg="6"
-        v-if="$vuetify.breakpoint.lgOnly"
-        class="mt-3 text-center  ml-5 justify-center"
-      >
-        <div
-          v-for="(elem, item) in rutas"
-          :key="item"
-          v-ripple
-          class=" texto-nav text-uppercase align-center justify-center  pa-1  ma-1"
-          style=""
-        >
-          {{ elem }}
-        </div>
-        
-      </v-col>
+      
 
-      <v-col cols="5" md="7" lg="2" sm="6" class=" pa-0 ma-0 flex-nowrap">
+      <v-col cols="5" md="7" lg="4" sm="6" class=" pa-0 ma-0 flex-nowrap">
     
         <v-row class="pa-0 ma-0 justify-center align-center ">
           
-          <v-col cols="7" sm="7" lg="7" class="pa-2 ma-2  text-right">
+          <v-col cols="7" sm="4" lg="4" class="pa-2 ma-2  text-right">
             <v-btn
               elevation="4"
               color="#b0b0b0"
@@ -59,35 +41,25 @@
               style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
                 v-if="$vuetify.breakpoint.smAndUp "
             >
-              Acceso APP
+              100,45114710
             </v-btn>
+
+             
           </v-col>
-          <v-col    v-if="$vuetify.breakpoint.smAndUp " cols="3" sm="3" lg="3" class="pa-2 ma-2 elevation-0">
-            <v-menu offset-y dark>
-              <template v-slot:activator="{ attrs, on }">
-                <v-btn class="white--text " v-bind="attrs" v-on="on" dark>
-                  ES
-                  <v-icon right dark>
-                    $expand
-                  </v-icon>
-                </v-btn>
-              </template>
-              <v-list light class="pa-0 ma-0 rounded-0">
-                <v-list-item link class="rounded-0">
-                  <v-list-item-title class="rounded-0 pa-0 ma-0"
-                    >EN</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-                 
+          <v-col cols="7" sm="4" lg="4" class="pa-2 ma-2  text-right">
+            <v-btn
+              elevation="4"
+              color="#b0b0b0"
+              max-width="160px"
+              active-class="btn--text "
+              style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
+                v-if="$vuetify.breakpoint.smAndUp "
+            >
+              100,45114710
+            </v-btn>
+
+             
           </v-col>
-           <v-col   v-if="$vuetify.breakpoint.smAndDown" cols="3" class=" justify-center d-flex elevation-0">
-             <v-app-bar-nav-icon
-             @click="ShowMenuMobile()"   
-             class="pa-2 ma-2" 
-             v-if="$vuetify.breakpoint.xsOnly" 
-             color="#ffffff"></v-app-bar-nav-icon> 
-           </v-col>
         </v-row>
       </v-col>
     </v-row>

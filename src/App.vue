@@ -2,6 +2,8 @@
  <div id="app">
     <v-app style="  background: #1b1d22;">
         <v-container fluid ma-0 pa-0>
+          <header-app v-if="$route.name != 'Search' && $route.name != 'Landing'"></header-app>
+          <header-dashboard v-if="$route.name == 'Search'"></header-dashboard>
                     <!-- Componente de header -->
                         <!-- <transition name="scroll"> -->
                             <router-view />
@@ -13,8 +15,10 @@
 </template>
 
 <script>
+import headerDashboard from './components/headerDashboard.vue';
 
 export default {
+  components: { headerDashboard },
   name: 'App',
   data: () => ({
     //
@@ -39,7 +43,7 @@ export default {
       color: #eeeeee !important;
    }
 body, html, .containerr{
-  background: #1b1d22;
+  background: rgba(238, 223, 223, 0);
   width: 100%;
   height: 100%;
 }

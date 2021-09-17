@@ -15,6 +15,10 @@ Vue.component("header-app", header);
 import footer from '@/components/footer'
 Vue.component("footer-app", footer);
 
+// footer
+import headerDashboard from '@/components/headerDashboard'
+Vue.component("header-dashboard", headerDashboard);
+
 // Section-uno
 import sectionUno from '@/components/SectionUno'
 Vue.component("sectionUno", sectionUno);

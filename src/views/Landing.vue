@@ -26,23 +26,7 @@ export default {
   data() {
     return {
       
-      colors: [
-        "indigo",
-        "warning",
-        "pink darken-2",
-        "#1b1d22 lighten-1",
-        "deep-purple accent-4",
-      ],
-
-      colors: [
-        "indigo",
-        "warning",
-        "pink darken-2",
-        "#1b1d22 lighten-1",
-        "deep-purple accent-4",
-      ],
-      offRipple: false,
-      infoCrypto: ["¿Qué es Cryptonumbers?", "¿Qué es NMBC?"],
+      
     };
   },
 };

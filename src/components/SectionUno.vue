@@ -1,6 +1,6 @@
 <template>
-    <div>
-          <section class="portada">
+  <div>
+    <section class="portada">
       <!-- header -->
       <header-app></header-app>
       <!-- sextion main portada -->
@@ -88,33 +88,27 @@
         </v-row>
       </section>
     </section>
-
-    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-        data(){
-            return{
-                    Crytonumero: "",
-                    titulo: " El Primer Metaverso de los Números",
-                    subtitulo: " Crea Tu Número Preferido En Un NFT<br> y sácale rendimiento",
-                    description: " Cryptonumbers y su token NMBC, crea el  único contrato que certifica tu propiedad del <br>número NFT que elijas dentro de la  Ethereum. La fecha del cumpleaños de tu hijo, el <br>número de tu jugador favorito, tu número de la suerte pueden ser parte de tu catálogo de<br> números exclusivos",
-            }
-        },
-        methods:{
-            deleteTypedItem(){
-
-            }
-        }
-        
-        
-    }
+export default {
+  data() {
+    return {
+      Crytonumero: "",
+      titulo: " El Primer Metaverso de los Números",
+      subtitulo: " Crea Tu Número Preferido En Un NFT<br> y sácale rendimiento",
+      description:
+        " Cryptonumbers y su token NMBC, crea el  único contrato que certifica tu propiedad del <br>número NFT que elijas dentro de la  Ethereum. La fecha del cumpleaños de tu hijo, el <br>número de tu jugador favorito, tu número de la suerte pueden ser parte de tu catálogo de<br> números exclusivos",
+    };
+  },
+  methods: {
+    deleteTypedItem() {},
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 .portada {
   background-image: url("../assets/portada-main.png");
   background-size: contain;
