@@ -132,7 +132,7 @@
         >
           {{ elem }}
         </div>
-        <!-- <v-app-bar-nav-icon color="#ffffff"></v-app-bar-nav-icon> -->
+         <v-app-bar-nav-icon color="#ffffff"></v-app-bar-nav-icon> 
       </v-col>
     </v-row>
     <!-- fin de version mdOnly -->

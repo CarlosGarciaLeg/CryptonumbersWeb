@@ -17,11 +17,13 @@
               <v-col cols="6" class="text-right">
                 <v-btn
                   elevation="4"
-                  color="#243ffa"
                   width="216px"
                   active-class="btn--text "
+                  :style="showNumNFT ? 'border:1px solid white;' : '' "
                   style="font-family: Ubuntu;  color:white; font-size:15px; text-transform: unset !important;"
                   v-if="$vuetify.breakpoint.smAndUp"
+                  v-bind:color="showNumNFT ? '#1b1d22' : '#243ffa'"
+                  @click="obtenerNumNFT()"
                 >
                   Obtener Número NFT
                 </v-btn>
@@ -32,11 +34,13 @@
               >
                 <v-btn
                   elevation="4"
-                  color="#1b1d22"
                   width="216px"
                   active-class="mr-10 btn_premiun"
-                  style="font-family: Roboto; color:white; font-weight: 500; font-size:14px; text-transform: unset !important; border:1px solid white;"
+                  style="font-family: Roboto; color:white; font-weight: 500; font-size:14px; text-transform: unset !important; "
                   v-if="$vuetify.breakpoint.smAndUp"
+                  v-bind:color="!showNumNFT ? '#1b1d22' : '#243ffa'"
+                  :style="!showNumNFT ? 'border:1px solid white;' : '' "
+                  @click="obtenerNumPremium()"
                 >
                   Premium
                 </v-btn>
@@ -61,11 +65,13 @@
         </v-row>
         <v-row class=" justify-center pa-0 ma-0  " style="width:100%; ">
           <v-col cols="12" md="6" lg="6" class=" text-left ">
-            <v-row class=" justify-center pa-0 ma-0  " style="width:100%; " >
+            <v-row class=" justify-center pa-0 ma-0  " v-if="!showNumNFT" style="width:100%; " >
               <v-col cols="12" md="11" lg="11" 
-              class=" text-left pa-0 mt-5 "
+                  
+                  class=" text-left pa-0 mt-5 "
                   v-for="(item, i) in tarjeta"
                   :key="i"
+                  
               >
                 <v-card
                   class="elevation-5"
@@ -170,6 +176,74 @@
                 </v-card>
               </v-col>
             </v-row>
+
+            <!-- premium -->
+            <v-row class=" justify-center pa-0 ma-0  " v-if="showNumNFT" style="width:100%; " >
+              <v-col cols="12" md="12" lg="12" 
+                  class=" text-left pa-0 mt-5 "
+                  v-for="(item, i) in tarjeta"
+                  :key="i"
+                  
+              >
+                <v-card
+                  class="elevation-0"
+                  color="#1b1d22"
+                  dark
+                  style="border-radius:2px;"
+              
+                >
+                  <v-card-text class="card__modal--subHeader ">
+                    <v-row class="pa-0 ma-0 " style="width:100%;">
+                      <v-col
+                        cols="6"
+                        md="6"
+                        style="position:relative;"
+                        class="justify-center text-center "
+                      >
+                        <v-img
+                          :src="item.src"
+                          alt="logo-blanco"
+                          class="mr-0 elevation-4 "
+                        >
+                        </v-img>
+                        <v-btn
+                                    color="#0e41ff"
+                                    class="rounded-5 mt-10  pa-0 ma-0 btn--search white--text "
+                                    @click="activarModal()"
+                                    width="180"
+                                     style="font-family: Roboto; color:white; font-weight: 500; font-size:14px; text-transform: unset !important; "
+                                  >
+                                    Obtener
+                                  </v-btn>
+                      </v-col>
+                      <v-col
+                        cols="6"
+                        md="6"
+                        style="position:relative;"
+                        class="justify-center text-center "
+                      >
+                        <v-img
+                          :src="item.src"
+                          alt="logo-blanco"
+                          class="mr-0 elevation-4 "
+                        >
+                        </v-img>
+
+                         <v-btn
+                                    color="#0e41ff"
+                                    class="rounded-5 mt-10  pa-0 ma-0 btn--search white--text "
+                                    @click="activarModal()"
+                                    width="180"
+                                     style="font-family: Roboto; color:white; font-weight: 500; font-size:14px; text-transform: unset !important; "
+                                  >
+                                    Obtener
+                                  </v-btn>
+                      </v-col>
+                    </v-row>
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-col>
@@ -184,7 +258,7 @@ export default {
   data() {
     return {
       modalOn: false,
-  
+      showNumNFT:false,
       tarjeta:[
         {
             status:false,
@@ -202,6 +276,20 @@ export default {
     };
   },
   methods: {
+    obtenerNumNFT(){
+          if(!this.showNumNFT){
+            return this.showNumNFT = true
+          }else{
+            return this.showNumNFT = false
+          }
+    },
+    obtenerNumPremium(){
+        if(this.showNumNFT){
+            return this.showNumNFT = false
+          }else{
+            return this.showNumNFT = true
+          }
+    },
     activarModal() {
       if (!this.modalOn) {
         return (this.modalOn = true);
