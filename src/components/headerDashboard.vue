@@ -105,36 +105,7 @@
       </v-col>
     </v-row>
     <!-- version mdOnly -->
-    <v-row v-if="$vuetify.breakpoint.mdOnly" class="pa-0 ma-0  justify-center ">
-      <v-col
-        cols="12"
-        md="12"
-        xs="12"
-        lg="12"
-        class="  text-center  pa-0 ma-0 justify-center"
-      >
-        <v-row>
-          <v-col
-            cols="12"
-            md="6"
-            xs="12"
-            lg="6"
-            class="  mt-3 text-center  justify-center"
-          >
-          </v-col>
-        </v-row>
-        <div
-          v-for="(elem, item) in rutas"
-          :key="item"
-          v-ripple
-          class=" texto-nav text-uppercase align-center justify-center  pa-1  ma-1"
-          style=""
-        >
-          {{ elem }}
-        </div>
-         <v-app-bar-nav-icon color="#ffffff"></v-app-bar-nav-icon> 
-      </v-col>
-    </v-row>
+    
     <!-- fin de version mdOnly -->
 
     <!-- Section Sub-header version responsive -->

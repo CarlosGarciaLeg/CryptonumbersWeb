@@ -70,4 +70,16 @@ body, html, .containerr{
     border-radius: 20px;
     padding: 10px;
 }
+
+.v-alert--prominent .v-alert__icon:after {
+    background: red !important;
+    border-radius: 50%;
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: .16; 
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 </style>
