@@ -1,6 +1,6 @@
 <template>
     <div>
-          <section class="section__cuatro ">
+          <section class="" :class="{'section__cuatro':$vuetify.breakpoint.smAndUp}">
       <v-row
         class=" justify-center align-center  pa-0 ma-0 "
         style="width:100%; "
@@ -29,7 +29,7 @@
               </v-img>
             </v-col>
             <v-col
-              cols="9"
+              cols="10"
               md="4"
               class="pa-0  ma-0 "
               data-aos="fade-right"
@@ -42,7 +42,7 @@
               >
                 <v-col
                   :class="{ 'mt-15': $vuetify.breakpoint.xsOnly }"
-                  cols="10"
+                  cols="12"
                   md="11"
                   style=""
                   class="pa-0 ma-2 text-left  "
@@ -115,6 +115,7 @@
 
                   <v-row class="">
                     <v-col
+                    v-if="$vuetify.breakpoint.sxOnly"
                       cols="12"
                       md="11"
                       style="height:80px;"
@@ -154,7 +155,7 @@
                           style=""
                           :class="{
                             'ml-5': $vuetify.breakpoint.smAndUp,
-                            'mt-5': $vuetify.breakpoint.xsOnly,
+                            'mt-0': $vuetify.breakpoint.xsOnly,
                           }"
                           class=" pa-0 ma-0 text-left "
                         >
@@ -450,7 +451,7 @@
         data(){
             return{
                   offRipple: false,
-                slides: [
+      slides: [
         {
           images: [
             {

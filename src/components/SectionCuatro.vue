@@ -8,7 +8,8 @@
           cols="12"
           md="12"
           style="background:#1b1d22;"
-          class="align-center text-center mt-15 justify-center"
+          class="align-center text-center justify-center"
+          :class="{'mt-15':$vuetify.breakpoint.smAndUp}"
         >
           <v-spacer class=""></v-spacer>
           <v-row class="  mt-15 justify-center" style="width:100%; ">
@@ -71,8 +72,7 @@
                             class="pa-0  fill-height d-flex flex-column justify-center align-center"
                           >
                             <v-img
-                              width="122px"
-                              height="122px"
+                              :class="{'imgcard': $vuetify.breakpoint.smAndUp}"
                               class="pa-0 "
                               :src="require(`@/assets/img-paso-${i + 1}.png`)"
                               alt=""
@@ -85,8 +85,8 @@
                       <div
                         v-for="(elem, j) in item.info"
                         :key="j"
-                        data-aos="zoom-in"
-                        :data-aos-duration="1000 * (j + 1)"
+                     
+                        class=" "
                       >
                         <p class="text--card__titulo mt-5 text-left">
                           {{ elem.titulo }}
@@ -103,7 +103,7 @@
               </v-row>
               <v-row class=" justify-center   " style="width:100%; ">
                 <v-col
-                  cols="5"
+                  cols="12"
                   md="3"
                   class=" fill-height d-flex flex-column justify-center align-center "
                 >
@@ -215,4 +215,20 @@
   text-align: center;
   color: #fff;
 }
+
+.text--card__subtitulo-nft{
+  font-family: Ubuntu;
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.58;
+  letter-spacing: 0.24px;
+  text-align: center;
+  color: white;
+}
+.imgcard{
+  width:122px; height:122px;
+}
+
 </style>

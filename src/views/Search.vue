@@ -9,16 +9,20 @@
       >
         <!-- <span class="tituloPortada" @click="activarModal()">Tokenomic</span> -->
         <v-row class="pa-0 ma-0 mt-15 justify-center align-center ">
-          <v-col cols="12" md="7" lg="7" class="ma-2">
+          <v-col cols="12" md="7" lg="7" class="ma-2 ">
             <v-row>
-              <v-col cols="6" class="text-right">
+              <v-col cols="12" sm="6" lg="6" class=""
+               :class="{ 'text-right': $vuetify.breakpoint.smAndUp,
+                         'text-center': $vuetify.breakpoint.sxOnly }"
+               
+              >
                 <v-btn
                   elevation="4"
                   width="216px"
                   active-class="btn--text "
                   :style="showNumNFT ? 'border:1px solid white;' : ''"
                   style="font-family: Ubuntu;  color:white; font-size:15px; text-transform: unset !important;"
-                  v-if="$vuetify.breakpoint.smAndUp"
+                 
                   v-bind:color="showNumNFT ? '#1b1d22' : '#243ffa'"
                   @click="obtenerNumNFT()"
                 >
@@ -26,15 +30,17 @@
                 </v-btn>
               </v-col>
               <v-col
-                cols="6"
-                class=" pa-0 ma-0 justify-start align-center d-flex text-left"
+                cols="12" lg="6" sm="6"
+                :class="{ 'text-left justify-start align-center d-flex': $vuetify.breakpoint.smAndUp,
+                         'text-center justify-center': $vuetify.breakpoint.sxOnly }"
+                class=" pa-0 ma-0   "
               >
                 <v-btn
                   elevation="4"
                   width="216px"
                   active-class="mr-10 btn_premiun"
                   style="font-family: Roboto; color:white; font-weight: 500; font-size:14px; text-transform: unset !important; "
-                  v-if="$vuetify.breakpoint.smAndUp"
+                 
                   v-bind:color="!showNumNFT ? '#1b1d22' : '#243ffa'"
                   :style="!showNumNFT ? 'border:1px solid white;' : ''"
                   @click="obtenerNumPremium()"

@@ -20,12 +20,24 @@
           :class="{
           'ml-15':  $vuetify.breakpoint.mdAndUp,
         }"
+        v-if="$vuetify.breakpoint.smAndUp"
           class="pa-2 ma-2"
-          width="200"
+          :width="{'200':$vuetify.breakpoint.smAndU}"
           :src="require('@/assets/logo-blanco.png')"
-          
           alt=""
-        /></router-link>
+        />
+          <img
+          :class="{
+          'ml-15':  $vuetify.breakpoint.mdAndUp,
+        }"
+        v-else
+          class="pa-2 ma-2"
+          :width="{'200':$vuetify.breakpoint.smAndU}"
+          :src="require('@/assets/logo-azul-blanco.png')"
+          alt=""
+        />
+        
+        </router-link>
       </v-col>
 
       <v-col
@@ -130,7 +142,10 @@
  
     <!-- Section Sub-header version responsive -->
     <v-row style="width:100%;" v-if="ocultar">
-      <v-col cols="12" class="ml-3 pa-0 ma-0">
+      <v-col cols="12" class=" pa-0 ma-0"
+      :class="{'ml-3': $vuetify.breakpoint.smAndUp,
+      'ml-1':$vuetify.breakpoint.xsOnly}"
+      >
         <template v-slot:activator="{ attrs, on }">
           <v-btn class="white--text" v-bind="attrs" v-on="on">
             Radius

@@ -1,6 +1,7 @@
 <template>
  <div id="app">
-    <v-app style="  background: #1b1d22;">
+    <v-app style="background: #1b1d22;overflow-x: hidden;"
+    >
         <v-container fluid ma-0 pa-0>
           <header-app v-if="$route.name != 'Search' && $route.name != 'Landing'"></header-app>
                 <header-dashboard v-if="$route.name == 'Search'"></header-dashboard>
@@ -51,7 +52,9 @@ body, html, .containerr{
   height: 100%;
   margin: 0;
   padding: 0;
+  
 }
+
 
 
 ::-webkit-scrollbar {

@@ -1,7 +1,8 @@
 <template>
     <div>
           <!-- section dos  -->
-    <div class="section__dos pa-0 ma-0">
+    <div    class=" pa-0  ma-0" :class="{'section__dos':$vuetify.breakpoint.smAndUp}"
+            :style="{'background:red;':$vuetify.breakpoint.xsOnly}" >
       <v-row
         class=" justify-center align-center  pa-0 ma-0 "
         style="width:100%; "
@@ -9,8 +10,8 @@
         <v-col
           cols="12"
           md="12"
-          class="pa-2 mt-14 ma-2 "
-          :class="{ 'mt-15': $vuetify.breakpoint.xsOnly }"
+          class=" ma-0 pa-0"
+          :class="{ 'mt-14 pa-2 ': $vuetify.breakpoint.smAndUp }"
         >
           <v-row
             wrap
@@ -18,10 +19,10 @@
             style="width:100%; "
           >
             <v-col
-              cols="10"
+              cols="12"
               md="4"
-              class="pa-0 mt-15  ma-2 "
-              :class="{ 'mt-15': $vuetify.breakpoint.xsOnly }"
+              class="pa-0   ma-2 "
+              :class="{ 'mt-15': $vuetify.breakpoint.smAndUp, 'ml-8' :$vuetify.breakpoint.xsOnly  }"
             >
               <v-row
                 class="justify-center"
@@ -64,7 +65,7 @@
                 </v-col>
               </v-row>
             </v-col>
-            <v-col cols="7" md="3" class="pa-2  mt-15 ma-2 ">
+            <v-col cols="8" md="3" class="pa-2  mt-15 ma-2 ">
               <v-img
                 data-aos="zoom-in"
                 data-aos-duration="2500"
@@ -84,10 +85,10 @@
     export default {
         data(){
             return{
-                 titulo: " El Primer Metaverso de los Números",
+                 titulo: " Un nuevo activo criptográfico",
                  infoCrypto: ["¿Qué es Cryptonumbers?", "¿Qué es NMBC?"],
                    Inforelleno: [
-                    "NumberCoin (NMBC) Es un doble token ERC20 del protocolo Cryptonumbers, tiene la particularidad que mantiene estable el precio de cada nuevo Número NFT creado en la plataforma, (excepto en los números premium) teniendo paridad 1:1 con el Satoshi, de este modo evitamos las temidas burbujas de lanzamiento, lo denominamos “StableNFT”.",
+                    "Es un proyecto blockchain open source que permite  adquirir en propiedad números mediante tokens no fungibles y darles valor en el mercado, funciona como un certificado de propiedad ya que estos pueden ser rastreados en la blockchain y siempre están relacionados a una dirección.",
                      "NumberCoin (NMBC) Es un doble token ERC20 del protocolo Cryptonumbers, tiene la particularidad que mantiene estable el precio de cada nuevo Número NFT creado en la plataforma, (excepto en los números premium) teniendo paridad 1:1 con el Satoshi, de este modo evitamos las temidas burbujas de lanzamiento, lo denominamos “StableNFT”.",
       ],
             }

@@ -4,8 +4,9 @@
       <v-col
         cols="7"
         md="5"
-        sm="6"
+        sm="3"
         lg="3"
+        style="height:78px;"
         class=""
         :class="{
           'text-right ': $vuetify.breakpoint.smAndUp,
@@ -30,18 +31,21 @@
         cols="5"
         md="7"
         lg="6"
-        sm="6"
+        sm="8"
         style="height:78px;"
         class=" justify-center d-flex align-center"
       >
         <v-row class="pa-0 ma-0  ">
-          <v-col cols="12" class="  justify-end align-end d-flex">
-            <v-row class="justify-end mr-5 align-center">
-              <v-col cols="4" sm="4" lg="4" class="pa-0 ma-0   text-right">
+          <v-col cols="12" class="  ">
+            <v-row v-if="$vuetify.breakpoint.mdAndUp" :class="{'justify-end' : $vuetify.breakpoint.mdAndUp}" class=" align-center">
+              <v-col cols="4" sm="5" lg="5" class="pa-0 ma-0 "
+                     :class="{ 'text-right mr-5' : $vuetify.breakpoint.mdAndUp,
+                               'text-left'  : $vuetify.breakpoint.smAndDown }"
+                   >
                 <v-btn
                   elevation="4"
                   color="rgba(176,176,176,0.38)"
-                  width="201px"
+                  
                   active-class="btn--textt "
                   style="margin: 0 10px 0 0;
                     font-family: Roboto !important;
@@ -64,7 +68,9 @@
                   >
                 </v-btn>
               </v-col>
-              <v-col cols="3" sm="3" lg="4" class="pa-0 ma-0   ml-0 text-left">
+              <v-col cols="4" sm="5" lg="4" class="pa-0 ma-0  "
+              :class="{'text-left' : $vuetify.breakpoint.mdAndUp}"
+              >
                 <v-btn
                   elevation="4"
                   color="rgba(176,176,176,0.38)"
@@ -92,7 +98,7 @@
                   color="rgba(176,176,176,0.38)"
                   width="25px"
                   regular
-                  active-class="btn--text mr-4 "
+                  active-class="btn--text  "
                   style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
                   v-if="$vuetify.breakpoint.smAndUp"
                 >
@@ -100,69 +106,103 @@
                 </v-btn>
               </v-col>
             </v-row>
+
+            <v-row v-if="$vuetify.breakpoint.smAndDown" :class="{'justify-end': $vuetify.breakpoint.smAndDown}">
+            <v-col  cols="3" class=" justify-end  align-end text-right d-flex  elevation-0">
+             <v-app-bar-nav-icon
+             @click="ShowMenuMobile()"   
+             class="pa-2 ma-2" 
+             v-if="$vuetify.breakpoint.smAndDown" 
+             color="#ffffff"></v-app-bar-nav-icon> 
+           </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-col>
+      
     </v-row>
     <!-- version mdOnly -->
-    
-    <!-- fin de version mdOnly -->
-
-    <!-- Section Sub-header version responsive -->
+     <!-- Section Sub-header version responsive -->
     <v-row style="width:100%;" v-if="ocultar">
       <v-col cols="12" class="ml-3 pa-0 ma-0">
-        <template v-slot:activator="{ attrs, on }">
-          <v-btn class="white--text" v-bind="attrs" v-on="on">
-            Radius
-          </v-btn>
-        </template>
-        <v-list
-          color="#1b1d22"
-          style="width:100%; color:white;"
-          class="text-center elevation-1 pa-0 ma-0 ml-2 white-texct"
-        >
-          <v-list-item v-for="item in rutas" :key="item" link>
-            <v-list-item-title
-              class="white--text text-uppercase"
-              v-text="item"
-            ></v-list-item-title>
-          </v-list-item>
-          <v-row class="text-center justify-center mt-2">
-            <v-col cols="3" sm="1" lg="1" class="pa-2 ma-2 text-right">
-              <v-btn
-                elevation="4"
-                color="#b0b0b0"
-                max-width="160px"
-                active-class="btn--text "
-                style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
+       
+        
+    
+        <v-row  :class="{'justify-end' : $vuetify.breakpoint.mdAndUp}" class="  align-center" style="height:60px;">
+              <v-col cols="6" sm="6" lg="6" class="pa-0 ma-0 "
+                     :class="{ 'text-right ' : $vuetify.breakpoint.mdAndUp,
+                               'text-right'  : $vuetify.breakpoint.smAndDown }"
+                   >
+                <v-btn
+                  elevation="4"
+                  color="rgba(176,176,176,0.38)"
+                  
+                  active-class="btn--textt "
+                  style="margin: 0 10px 0 0;
+                    font-family: Roboto !important;
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    text-align: right;
+                    color: #fff;"
+                  v-if="$vuetify.breakpoint.smAndUp"
+                >
+                  100,45114710
+                  <span
+                    class="ml-2"
+                    style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
+                  >
+                    NMBC</span
+                  >
+                </v-btn>
+              </v-col>
+              <v-col cols="6" sm="6" lg="6" class="pa-0 ma-0    "
+              :class="{'text-left' : $vuetify.breakpoint.mdAndUp}"
               >
-                Acceso APP
-              </v-btn>
-            </v-col>
-            <v-col cols="3" sm="1" lg="1" class="pa-0 ma-0 ml-3  elevation-0">
-              <v-menu :rounded="rounded" offset-y dark>
-                <template v-slot:activator="{ attrs, on }">
-                  <v-btn class="white--text ma-4" v-bind="attrs" v-on="on" dark>
-                    ES
-                    <v-icon right dark>
-                      $expand
-                    </v-icon>
-                  </v-btn>
-                </template>
+                <v-btn
+                  elevation="4"
+                  color="rgba(176,176,176,0.38)"
+                  max-width="160px"
+                  active-class="num__crypto "
+                  style="margin: 0 10px 0 0;
+                    font-family: Roboto !important;
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    text-align: right;
+                    color: #fff;
+                    text-transform: lowercase;
+                    "
+                  v-if="$vuetify.breakpoint.smAndUp"
+                >
+                  0X0d17…esadb
+                </v-btn>
 
-                <v-list light class="pa-0 ma-0 rounded-0">
-                  <v-list-item link class="rounded-0">
-                    <v-list-item-title class="rounded-0 pa-0 ma-0"
-                      >EN</v-list-item-title
-                    >
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-col>
-          </v-row>
-        </v-list>
+                <v-btn
+                  elevation="4"
+                  color="rgba(176,176,176,0.38)"
+                  width="25px"
+                  regular
+                  active-class="btn--text  "
+                  style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
+                  v-if="$vuetify.breakpoint.smAndUp"
+                >
+                  ....
+                </v-btn>
+              </v-col>
+            </v-row>
+    
       </v-col>
     </v-row>
+    <!-- fin de version mdOnly -->
+
+   
   </v-card>
 </template>
 

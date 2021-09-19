@@ -1,36 +1,44 @@
 <template>
   <div>
-    <section class="portada">
+    <section :class="{'portada':$vuetify.breakpoint.smAndUp}">
       <!-- header -->
       <header-app></header-app>
       <!-- sextion main portada -->
-      <section id="cabecera" class="">
-        <v-row wrap class="fill-height justify-center align-center  pa-0 ma-0 ">
+      <section id="cabecera" class="" style=""
+      :style="{'background:#2B2B2B;':$vuetify.breakpoint.xsOnly}"
+      >
+        <v-row class="pa-0 ma-0 " >
           <v-col
             cols="12"
             md="12"
-            class="  align-center text-center   justify-center"
+            style="margin:1px !important;"
+            class="ma-0 align-center text-center "
+            
           >
-            <v-row class="justify-center" style="width:100%; ">
+            <v-row class="ma-0 pa-0" style="width:100%; ">
               <v-col
                 cols="12"
                 md="11"
                 style=""
                 :class="{
-                  'ml-14': $vuetify.breakpoint.smAndUp,
+                          'ml-14 mt-12'    : $vuetify.breakpoint.smAndUp,
+                          'ma-0 pa-0 mt-15': $vuetify.breakpoint.xsOnly
                 }"
-                class=" pa-0  mt-12 fill-height d-flex flex-column justify-center align-center "
+                class=" pa-0 justify-center align-center "
               >
-                <span class="tituloPortada ma-2" v-html="titulo"></span>
-                <v-row class="  mt-2 justify-center" style="width:100%; ">
+                <span class="tituloPortada ma-2" 
+                :class="{'El-Primer-Metaverso-mobile mt-15': $vuetify.breakpoint.xsOnly}"
+                v-html="titulo"></span>
+                <v-row class=" pa-0 ma-0 mt-2 justify-center" style="width:100%; ">
                   <v-col
                     cols="12"
                     md="9"
-                    class="pa-0 ma-0 fill-height d-flex flex-column justify-center align-center "
+                    class="   d-flex flex-column justify-center align-center "
                   >
                     <span
-                      :class="{ 'text-xs-h3': $vuetify.breakpoint.xsOnly }"
-                      class="tituloPortada__sub--titulo  ma-2"
+                      :class="{ 'tituloPortada__sub--mobile pa-0 ma-0 mt-5 ': $vuetify.breakpoint.xsOnly,
+                                'tituloPortada__sub--titulo ma-2': $vuetify.breakpoint.smAndUp }"
+                      class="  "
                       v-html="subtitulo"
                     >
                     </span>
@@ -39,12 +47,14 @@
                       style="width:100%; "
                     >
                       <v-col
-                        cols="11"
+                        cols="12"
                         md="11"
+                        :class="{'mt-5': $vuetify.breakpoint.xsOnly}"
                         class="pa-0 ma-0 fill-height d-flex flex-column justify-center align-center "
                       >
                         <span
-                          class="tituloPortada__sub--description  ma-4"
+                          :class="{'ml-0 mr-0 pa-0 tituloPortada__sub--description-mobile':$vuetify.breakpoint.xsOnly, 'ma-1 tituloPortada__sub--description ':$vuetify.breakpoint.smAndUp}"
+                          class="  "
                           v-html="description"
                         >
                         </span>
@@ -84,7 +94,9 @@
                       class="mt-8 justify-center pa-0 ma-0 "
                       style="width:100%; "
                     >
-                      <v-col cols="12" md="9" lg="9" class="">
+                      <v-col cols="12" md="9" lg="9" class=""
+                      :class="{'justify-center' : $vuetify.breakpoint.xsOnly}"
+                      >
                     <search-bar></search-bar>
                       </v-col>
                       </v-row>
@@ -117,6 +129,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.El-Primer-Metaverso-mobile {
+  width: 293px;
+  height: 40px;
+  text-transform: uppercase;
+  font-family: Ubuntu;
+  font-size: 25px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.23px;
+  text-align: center;
+  color: #243ffa;
+}
+.fondo-mobile{
+  background-image: url("../assets/backgroun-copy.png");
+  background-size: contain;
+}
 .portada {
   background-image: url("../assets/portada-main.png");
   background-size: contain;
@@ -132,10 +162,32 @@ export default {
   text-align: center;
   color: #fff;
 }
+.tituloPortada__sub--mobile{
+  font-family: Ubuntu;
+  font-size: 37px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: 0.65px;
+  text-align: center;
+  color: #fff;
+}
 
 .tituloPortada__sub--description {
   font-family: Ubuntu;
-  font-size: 19px;
+  font-size: 19px; 
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.53;
+  letter-spacing: 0.24px;
+  text-align: center;
+  color: #fff;
+}
+.tituloPortada__sub--description-mobile{
+    font-family: Ubuntu;
+  font-size: 23px; 
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

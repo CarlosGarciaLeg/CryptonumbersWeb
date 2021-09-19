@@ -1,7 +1,7 @@
 <template>
     <div>
            <!-- section 3 -->
-    <section class="section__tres #1b1d22">
+    <section class="" :class="{'section__tres':$vuetify.breakpoint.smAndUp}">
       <v-spacer></v-spacer>
       <v-row class=" mt-15  justify-center" style="width:100%; ">
         <v-col
@@ -34,7 +34,7 @@
           </v-row>
         </v-col>
       </v-row>
-      <v-row class="  mt-15 justify-center" style="width:100%; ">
+      <v-row class=" ma-0 pa-0 mt-15 justify-center" style="width:100%; ">
         <v-col
           cols="10"
           md="10"
@@ -43,7 +43,7 @@
           <!-- cards information products -->
           <v-row class="mt-10 justify-center   " style="width:100%; ">
             <v-col
-              cols="9"
+              cols="12"
               md="3"
               v-for="(item, i) in cardinfo"
               :key="i"
@@ -66,7 +66,7 @@
                     <v-col
                       cols="12"
                       md="12"
-                      class="pa-1 ma-0"
+                      class="pa-1 ma-0 "
                       :id="`icon--cards-${i}`"
                     >
                       <v-img
@@ -172,13 +172,7 @@
   background-image: url("../assets/background-3.png");
   background-size: cover;
 }
-.image__section4--info {
-  background-image: url("../assets/img-cryptonumber-02.png");
-  background-size: cover;
-  width: 536px;
-  height: 433px;
-  object-fit: contain;
-}
+
 .tituloPortada__sectionThree {
   font-family: Ubuntu;
   font-size: 36px;
