@@ -1,5 +1,7 @@
 <template>
-  <v-card style="background-color: rgba(0,0,0,0.0);" flat tile class="elevation-0 header-content">
+  <v-card flat tile class="elevation-0 header-content"
+  :class="{'mobile-card-container':$vuetify.breakpoint.xsOnly, 'desktop--container' : $vuetify.breakpoint.smAndUp}"
+  >
     <v-row class="pa-0 ma-0 transparent d-flex "
    
     >
@@ -242,6 +244,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.mobile-card-container{
+  background-color: #1b1d22 !important;
+}
+
+.desktop--container{
+  background-color: rgba(0,0,0,0.0) !important;
+}
 a{
   text-decoration: none;
 }

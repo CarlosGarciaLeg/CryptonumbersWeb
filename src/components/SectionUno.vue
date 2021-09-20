@@ -1,19 +1,22 @@
 <template>
   <div>
-    <section :class="{'portada':$vuetify.breakpoint.smAndUp}">
+    <section :class="{ 'portada' : $vuetify.breakpoint.smAndUp,
+                       'mobile--container':$vuetify.breakpoint.xsOnly}">
       <!-- header -->
       <header-app></header-app>
       <!-- sextion main portada -->
-      <section id="cabecera" class="" style=""
-      :style="{'background:#2B2B2B;':$vuetify.breakpoint.xsOnly}"
+      <section
+        id="cabecera"
+        class=""
+        style=""
+        :style="{ 'background:#2B2B2B;': $vuetify.breakpoint.xsOnly }"
       >
-        <v-row class="pa-0 ma-0 " >
+        <v-row class="pa-0 ma-0 ">
           <v-col
             cols="12"
             md="12"
             style="margin:1px !important;"
             class="ma-0 align-center text-center "
-            
           >
             <v-row class="ma-0 pa-0" style="width:100%; ">
               <v-col
@@ -21,23 +24,35 @@
                 md="11"
                 style=""
                 :class="{
-                          'ml-14 mt-12'    : $vuetify.breakpoint.smAndUp,
-                          'ma-0 pa-0 mt-15': $vuetify.breakpoint.xsOnly
+                  'ml-14 mt-12': $vuetify.breakpoint.smAndUp,
+                  'ma-0 pa-0 mt-15': $vuetify.breakpoint.xsOnly,
                 }"
                 class=" pa-0 justify-center align-center "
               >
-                <span class="tituloPortada ma-2" 
-                :class="{'El-Primer-Metaverso-mobile mt-15': $vuetify.breakpoint.xsOnly}"
-                v-html="titulo"></span>
-                <v-row class=" pa-0 ma-0 mt-2 justify-center" style="width:100%; ">
+                <span
+                  class="tituloPortada ma-2"
+                  :class="{
+                    'El-Primer-Metaverso-mobile mt-15':
+                      $vuetify.breakpoint.xsOnly,
+                  }"
+                  v-html="titulo"
+                ></span>
+                <v-row
+                  class=" pa-0 ma-0 mt-2 justify-center"
+                  style="width:100%; "
+                >
                   <v-col
                     cols="12"
                     md="9"
                     class="   d-flex flex-column justify-center align-center "
                   >
                     <span
-                      :class="{ 'tituloPortada__sub--mobile pa-0 ma-0 mt-5 ': $vuetify.breakpoint.xsOnly,
-                                'tituloPortada__sub--titulo ma-2': $vuetify.breakpoint.smAndUp }"
+                      :class="{
+                        'tituloPortada__sub--mobile pa-0 ma-0 mt-5 ':
+                          $vuetify.breakpoint.xsOnly,
+                        'tituloPortada__sub--titulo ma-2':
+                          $vuetify.breakpoint.smAndUp,
+                      }"
                       class="  "
                       v-html="subtitulo"
                     >
@@ -49,57 +64,39 @@
                       <v-col
                         cols="12"
                         md="11"
-                        :class="{'mt-5': $vuetify.breakpoint.xsOnly}"
+                        :class="{ 'mt-5': $vuetify.breakpoint.xsOnly }"
                         class="pa-0 ma-0 fill-height d-flex flex-column justify-center align-center "
                       >
                         <span
-                          :class="{'ml-0 mr-0 pa-0 tituloPortada__sub--description-mobile':$vuetify.breakpoint.xsOnly, 'ma-1 tituloPortada__sub--description ':$vuetify.breakpoint.smAndUp}"
+                          :class="{
+                            'ml-0 mr-0 pa-0 tituloPortada__sub--description-mobile':
+                              $vuetify.breakpoint.xsOnly,
+                            'ma-1 tituloPortada__sub--description ':
+                              $vuetify.breakpoint.smAndUp,
+                          }"
                           class="  "
                           v-html="description"
                         >
                         </span>
                       </v-col>
                     </v-row>
-                    <!-- <v-row
+       
+                    <v-row
                       class="mt-8 justify-center pa-0 ma-0 "
                       style="width:100%; "
                     >
-                      <v-col cols="12" md="9" class="">
-                        <v-text-field
-                          placeholder="Introduzca número"
-                          single-line
-                          dense
-                          elevation-4
-                          light
-                          v-model.number="Crytonumero"
-                          class=" mx-5 elevation-0 rounded-0  search-field"
-                          height="50px"
-                          background-color="#ffffff"
-                        >
-                          <template v-slot:append>
-                            <v-btn
-                              color="#0e41ff"
-                              class="rounded-0 btn--search white--text "
-                              height="50"
-                              width="150"
-                              @click="deleteTypedItem()"
-                            >
-                              Buscar
-                            </v-btn>
-                          </template>
-                        </v-text-field>
-                      </v-col>
-                    </v-row> -->
-                      <v-row
-                      class="mt-8 justify-center pa-0 ma-0 "
-                      style="width:100%; "
-                    >
-                      <v-col cols="12" md="9" lg="9" class=""
-                      :class="{'justify-center' : $vuetify.breakpoint.xsOnly}"
+                      <v-col
+                        cols="12"
+                        md="9"
+                        lg="9"
+                        class=""
+                        :class="{
+                          'justify-center': $vuetify.breakpoint.xsOnly,
+                        }"
                       >
-                    <search-bar></search-bar>
+                        <search-bar></search-bar>
                       </v-col>
-                      </v-row>
+                    </v-row>
                   </v-col>
                 </v-row>
               </v-col>
@@ -129,6 +126,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.mobile--container{
+  background-color: #2B2B2B !important;
+}
 .El-Primer-Metaverso-mobile {
   width: 293px;
   height: 40px;
@@ -143,7 +144,7 @@ export default {
   text-align: center;
   color: #243ffa;
 }
-.fondo-mobile{
+.fondo-mobile {
   background-image: url("../assets/backgroun-copy.png");
   background-size: contain;
 }
@@ -162,7 +163,7 @@ export default {
   text-align: center;
   color: #fff;
 }
-.tituloPortada__sub--mobile{
+.tituloPortada__sub--mobile {
   font-family: Ubuntu;
   font-size: 37px;
   font-weight: 500;
@@ -176,7 +177,7 @@ export default {
 
 .tituloPortada__sub--description {
   font-family: Ubuntu;
-  font-size: 19px; 
+  font-size: 19px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -185,9 +186,9 @@ export default {
   text-align: center;
   color: #fff;
 }
-.tituloPortada__sub--description-mobile{
-    font-family: Ubuntu;
-  font-size: 23px; 
+.tituloPortada__sub--description-mobile {
+  font-family: Ubuntu;
+  font-size: 23px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

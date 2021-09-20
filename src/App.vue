@@ -1,6 +1,7 @@
 <template>
  <div id="app">
-    <v-app style="background: #1b1d22;overflow-x: hidden;"
+    <v-app style="overflow-x: hidden;"
+    :class="{'mobile--container':$vuetify.breakpoint.xsOnly,'desktop--container':$vuetify.breakpoint.smAndUp }"
     >
         <v-container fluid ma-0 pa-0>
           <header-app v-if="$route.name != 'Search' && $route.name != 'Landing'"></header-app>
@@ -17,7 +18,6 @@
 
 <script>
 import headerDashboard from './components/headerDashboard.vue';
-
 export default {
   components: { headerDashboard },
   name: 'App',
@@ -32,9 +32,17 @@ input{
 margin-left: 10px !important;
 }
 @import "./sass/variables";
+@import "./sass/mobile.scss";
 @font-face {
   font-family: Roboto-Medium;
   src: url("./assets/fonts/Roboto-Medium.ttf");
+}
+
+.mobile--container{
+  background-color: #f9faff !important;
+}
+.desktop--container{
+  background-color: #1b1d22 !important;
 }
  .v-carousel__controls{
        padding: 0px;

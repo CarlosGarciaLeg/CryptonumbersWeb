@@ -12,7 +12,7 @@
             style="width:100%; "
           >
             <v-col
-              cols="8"
+              cols="12"
               md="5"
               class="pa-2  mt-15  "
               data-aos="fade-left"
@@ -45,14 +45,18 @@
                   cols="12"
                   md="11"
                   style=""
-                  class="pa-0 ma-2 text-left  "
+                  class="pa-0 ma-2   "
                 >
-                  <span class="sectionfour__sub--titulo  ">
+                  <span class="  "
+                    :class="{'Cryptonumbers-y-su-t mt-7 text-left':$vuetify.breakpoint.xsOnly, 'sectionfour__sub--titulo text-left':$vuetify.breakpoint.smAndUp}"
+                  >
                     Números NFT
                   </span>
                 </v-col>
                 <v-col cols="12" md="11" style="" class=" pa-0 ma-0 text-left ">
-                  <span class="pa-0 ma-0 text--card__subtitulo">
+                  <span class="pa-0 ma-0 "
+                  :class="{'salo-como-colateral': $vuetify.breakpoint.xsOnly, 'text--card__subtitulo':$vuetify.breakpoint.smAndUp}"
+                  >
                     Lorem ipsum 100.000.000 NMBC, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -60,7 +64,9 @@
                   </span>
                 </v-col>
                 <v-col cols="12" md="11" style="" class="pa-0 ma-3 text-left ">
-                  <span class="white--text">
+                  <span class=""
+                     :class="{'texto--mobile-nft': $vuetify.breakpoint.xsOnly, 'white--text':$vuetify.breakpoint.smAndUp}"
+                  >
                     Números NFT
                   </span>
                 </v-col>
@@ -242,7 +248,7 @@
                 </v-col>
 
                 <v-col
-                  cols="8"
+                  cols="12"
                   md="5"
                   :class="{ 'mt-0': $vuetify.breakpoint.smAndUp }"
                   data-aos="fade-left"
