@@ -1,21 +1,32 @@
 <template>
   <div>
-    <sectionUno></sectionUno>
+    <!-- inciio landing -->
+    <section-inicio    id="inicio"></section-inicio>
 
-    <sectionDos></sectionDos>
+    <!-- section dos :: Conocennos -->
+    <section-conocenos id="conocenos"></section-conocenos>
 
-    <section-tres></section-tres>
+    <!-- section tres :: Obtener numero NFT -->
+    <section-tres      id="obtenernumero"></section-tres>
 
-    <section-cuatro></section-cuatro>
+    <!-- section cuatro :: que hacer con el numero -->
+    <section-cuatro    id="que-hacer-numerp"></section-cuatro>
 
-    <section-cinco></section-cinco>
+    <!-- section cinco :: tokenomic -->
+    <section-tokenomic id="tokenomic"></section-tokenomic>
 
-    <section-seis></section-seis>
+    <!-- section seois :: roadmap -->
+    <section-roadmap   id="roadmap"></section-roadmap>
+
+    <!-- section siete :: team -->
+    <section-team      id="team"></section-team>
+    
+    <!-- section ocho :: faq -->
+    <section-faq       id="faq"></section-faq>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "Home",
 

@@ -55,10 +55,10 @@
           v-for="(elem, item) in rutas"
           :key="item"
           v-ripple
-          class=" texto-nav text-uppercase align-center justify-center  pa-1  ma-1"
+          class=" red texto-nav text-uppercase align-center justify-center  pa-1  ma-1"
           style=""
         >
-        <router-link class="texto-nav text-uppercase" :to="urlNavigation[item]">
+        <router-link   class="texto-nav text-uppercase"  :to="{ hash: hashNavigation[item] }">
           {{ elem }}
           </router-link>
         </div>
@@ -220,6 +220,15 @@ export default {
         "faq",
         "whiterpapper",
       ],
+      hashNavigation:[
+        '#inicio',
+        '#conocenos',
+        '#tokenomic',
+        '#team',
+        '#roadmap',
+        '#faq',
+        '#inicio'
+      ],
       urlNavigation:[
         '/',
         '/',
@@ -231,7 +240,21 @@ export default {
       ]
     };
   },
+   mounted () {
+      window.addEventListener('scroll', this.handleScroll)
+ },
   methods:{
+        // desplazamiento de etiquetas
+    goAnchor(selector) {
+      console.log("Entrooo");
+      this.$el.querySelector(selector).scrollIntoView({
+          behavior: "smooth",  // transición suave
+          block:    "start"  // El borde superior está al ras con la parte superior de la ventana. Defaults
+      });
+    },
+  scrollToNavegacion(elem) {
+return alert(elem);
+},
     ShowMenuMobile(){
          if(!this.ocultar){
            return this.ocultar = true

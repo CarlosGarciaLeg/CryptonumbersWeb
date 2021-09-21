@@ -20,12 +20,12 @@ import headerDashboard from '@/components/headerDashboard'
 Vue.component("header-dashboard", headerDashboard);
 
 // Section-uno
-import sectionUno from '@/components/SectionUno'
-Vue.component("sectionUno", sectionUno);
+import sectionInicio from '@/components/SectionInicio'
+Vue.component("section-inicio", sectionInicio);
 
 // Section-dos
-import sectionDos from '@/components/SectionDos'
-Vue.component("sectionDos", sectionDos);
+import sectionConocenos from '@/components/SectionConocenos'
+Vue.component("section-conocenos", sectionConocenos);
 
 // Section-tres
 import sectionTres from '@/components/SectionTres'
@@ -36,12 +36,20 @@ import sectionCuatro from '@/components/SectionCuatro'
 Vue.component("sectionCuatro", sectionCuatro);
 
 // Section-cinco
-import sectionCinco from '@/components/SectionCinco'
-Vue.component("sectionCinco", sectionCinco);
+import sectionTokenomic from '@/components/SectionTokenomic'
+Vue.component("section-tokenomic", sectionTokenomic);
 
 // Section-seis
-import sectionSeis from '@/components/SectionSeis'
-Vue.component("sectionSeis", sectionSeis);
+import sectionRoadmap from '@/components/SectionRoadmap'
+Vue.component("section-roadmap", sectionRoadmap);
+
+// Section-seis
+import sectionTeam from '@/components/SectionTeam'
+Vue.component("section-team", sectionTeam);
+
+// Section-seis
+import sectionFaq from '@/components/SectionFaq'
+Vue.component("section-faq", sectionFaq);
 
 // modal-app
 import modalApp from '@/components/modal'
