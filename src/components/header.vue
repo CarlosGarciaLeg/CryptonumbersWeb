@@ -55,7 +55,7 @@
           v-for="(elem, item) in rutas"
           :key="item"
           v-ripple
-          class=" red texto-nav text-uppercase align-center justify-center  pa-1  ma-1"
+          class="  texto-nav text-uppercase align-center justify-center  pa-1  ma-1"
           style=""
         >
         <router-link   class="texto-nav text-uppercase"  :to="{ hash: hashNavigation[item] }">
