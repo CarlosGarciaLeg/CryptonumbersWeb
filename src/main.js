@@ -50,6 +50,16 @@ Vue.component("modal-app", modalApp);
 // searchBar-app
 import searchBar from '@/components/searchBar'
 Vue.component("search-bar", searchBar);
+
+
+// slide Desktop
+import slidedesktop from '@/components/slideDesktop'
+Vue.component("slide-desktop", slidedesktop);
+
+// slide Mobile
+import slidemobile from '@/components/slideMobile'
+Vue.component("slide-mobile", slidemobile);
+
 new Vue({
   router,
   store,

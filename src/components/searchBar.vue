@@ -56,7 +56,13 @@
             return{
                  Crytonumero: "",
             }
+        },
+        methods:{
+          deleteTypedItem(){
+            
+          }
         }
+        
     }
 </script>
 

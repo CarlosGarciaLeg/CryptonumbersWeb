@@ -16,7 +16,7 @@
                        'mobile--container':$vuetify.breakpoint.xsOnly}"
         >
           <v-spacer class=""></v-spacer>
-          <v-row class="  mt-15 justify-center" style="width:100%; ">
+          <v-row class=" ma-0 mt-15 justify-center" style="width:100%; ">
             <v-col
               cols="12"
               md="9"
@@ -32,7 +32,7 @@
               </span>
               <v-row class="mt-2 justify-center   " style="width:100%; ">
                 <v-col
-                  cols="11"
+                  cols="12"
                   md="11"
                   class="pa-0 ma-0 fill-height d-flex flex-column justify-center align-center "
                 >
@@ -62,11 +62,12 @@
                     class=" elevation-0 pa-0 ma-0"
                     max-width="344"
                     color="transparent"
-                    :light="$vuetify.breakpoint.smAndUp"
+                    :light="false"
+                      :class="{'texto__card': $vuetify.breakpoint.sxOnly}"
                   >
                     <v-card-text
                       class="text-left align-center   justify-center "
-                         :light="$vuetify.breakpoint.smAndUp"
+                          :light="false"
                     >
                       <div style="width:100%;" class="text-left align-center ">
                         <v-row
@@ -79,9 +80,19 @@
                             class="pa-0  fill-height d-flex flex-column justify-center align-center"
                           >
                             <v-img
+                              v-if="$vuetify.breakpoint.smAndUp"
                               :class="{'imgcard': $vuetify.breakpoint.smAndUp}"
                               class="pa-0 "
                               :src="require(`@/assets/img-paso-${i + 1}.png`)"
+                              alt=""
+                              data-aos="zoom-in"
+                              :data-aos-duration="1000 * (i + 1)"
+                            ></v-img>
+                            <v-img
+                              v-if="$vuetify.breakpoint.xsOnly"
+                              :class="{'imgcard': $vuetify.breakpoint.smAndUp}"
+                              class="pa-0 "
+                              :src="require(`@/assets/pasos/img-paso-${i + 1}.png`)"
                               alt=""
                               data-aos="zoom-in"
                               :data-aos-duration="1000 * (i + 1)"
@@ -96,13 +107,13 @@
                         class=" "
                       >
                         <p class=" "
-                         :class="{'texto--mobile-nft': $vuetify.breakpoint.xsOnly, 'text--card__titulo mt-5 text-left':$vuetify.breakpoint.smAndUp}"
+                         :class="{'texto--mobile-nft mt-5 texto__card': $vuetify.breakpoint.xsOnly, 'text--card__titulo mt-5 text-left':$vuetify.breakpoint.smAndUp}"
                         >
                           {{ elem.titulo }}
                         </p>
 
                         <div class=" "
-                          :class="{'salo-como-colateral ma-0 pa-0 text-center': $vuetify.breakpoint.xsOnly, 'text--card__subtitulo text-left':$vuetify.breakpoint.smAndUp}"
+                          :class="{'salo-como-colateral ma-0 pa-0 text-center texto__card': $vuetify.breakpoint.xsOnly, 'text--card__subtitulo text-left':$vuetify.breakpoint.smAndUp}"
                         >
                           {{ elem.description }}
                         </div>
@@ -112,7 +123,7 @@
                   </v-card>
                 </v-col>
               </v-row>
-              <v-row class=" justify-center   " style="width:100%; ">
+              <v-row class=" justify-center  ma-0 " style="width:100%; ">
                 <v-col
                   cols="12"
                   md="3"
@@ -121,7 +132,8 @@
                   <v-btn
                     elevation="4"
                     color="#243ffa"
-                    max-width="180px"
+                    height="45"
+                  :block="$vuetify.breakpoint.xsOnly"
                     style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
                     @click="obtenerNumero()"
                   >Obtener Número
@@ -201,6 +213,10 @@
   #img--ObtenerNum__pasos-1::after {
     display: none;
   }
+}
+
+.texto__card{
+  color:#333333 !important;
 }
 .tituloPortada__sectionThree {
   font-family: Ubuntu;

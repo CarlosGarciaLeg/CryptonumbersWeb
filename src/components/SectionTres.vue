@@ -29,8 +29,8 @@
                 Con los <strong> NFT de Cryptonumbers</strong> ocurre los mismo
                 que con los “Blockchain Domains” en los markets de NFTs, el<br />
                 valor de la imágen es simbólica, mientras que con el contrato de
-                registro en la blockchain obtienes una prueba<br />
-                verificable de que ese activo digital es auténtico. Es un token
+                registro en la blockchain obtienes una <strong>prueba<br />
+                verificable de que ese activo digital es auténtico.</strong> Es un token
                 ERC-721, por su naturaleza puede ser operado<br />
                 en los mercados de la red.
               </span>
@@ -63,6 +63,8 @@
                 color="transparent"
                 v-for="(elem, j) in item.images"
                 :key="j"
+                light
+                :style="{'text-color:#999999;':$vuetify.breakpoint.sxOnly}"
               >
                 <div style="width:100%;" class=" text-center align-center ">
                   <v-row
@@ -88,7 +90,7 @@
                         class=""
                         :src="elem.srcmobil"
                         alt=""
-                        style=" width: 152px;"
+                        style=" width: 164px;"
                         v-if="$vuetify.breakpoint.xsOnly"
                       ></v-img>
                     </v-col>
@@ -134,7 +136,7 @@
         {
           images: [
             { src: require("@/assets/icon-acceso.png") },
-            { srcmobil: require("@/assets/mobile/img-01.png") },
+            { srcmobil: require("@/assets/mobile/img-02.png") },
             { caption: "Acceso" },
             {
               text:
@@ -145,7 +147,7 @@
         {
           images: [
             { src: require("@/assets/icon-regala-prox.png") },
-            { srcmobil: require("@/assets/mobile/img-01.png") },
+            { srcmobil: require("@/assets/mobile/img-03.png") },
             { caption: "Regala tu número" },
             {
               text:
@@ -156,7 +158,7 @@
         {
           images: [
             { src: require("@/assets/icon-vende-prox.png") },
-                     { srcmobil: require("@/assets/mobile/img-01.png") },
+                     { srcmobil: require("@/assets/mobile/img-04.png") },
             { caption: "Vende tu número" },
             {
               text:
@@ -167,7 +169,7 @@
         {
           images: [
             { src: require("@/assets/icon-batallas-prox.png") },
-                     { srcmobil: require("@/assets/mobile/img-01.png") },
+                     { srcmobil: require("@/assets/mobile/img-05.png") },
             { caption: "Batallas NFTs" },
             {
               text:
@@ -178,7 +180,7 @@
         {
           images: [
             { src: require("@/assets/icon-alquiler-prox.png") },
-                     { srcmobil: require("@/assets/mobile/img-01.png") },
+                     { srcmobil: require("@/assets/mobile/img-06.png") },
             { caption: "Colateral DeFi" },
             {
               text:

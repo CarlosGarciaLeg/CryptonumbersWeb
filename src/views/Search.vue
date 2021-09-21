@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-row class=" justify-center text-center  pa-0 ma-0 " style="width:100%;">
+    <v-row class=" justify-center text-center  pa-0 ma-0 " style="width:100%;background:#1b1d22;"
+    >
       <v-col
         cols="12"
         md="12"
