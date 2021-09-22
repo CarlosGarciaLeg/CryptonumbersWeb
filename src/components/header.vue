@@ -1,7 +1,9 @@
 <template>
+
   <v-card flat tile class="elevation-0 header-content"
   :class="{'mobile-card-container':$vuetify.breakpoint.xsOnly, 'desktop--container' : $vuetify.breakpoint.smAndUp}"
   >
+  
     <v-row class="pa-0 ma-0 transparent d-flex "
    
     >
@@ -158,11 +160,14 @@
           style="width:100%; color:white;"
           class="text-center elevation-1 pa-0 ma-0 ml-2 white-texct"
         >
-          <v-list-item v-for="item in rutas" :key="item" link>
+          <v-list-item v-for="(item, index) in rutas" :key="index" link>
             <v-list-item-title
               class="white--text text-uppercase"
-              v-text="item"
-            ></v-list-item-title>
+            >
+            <router-link   class="texto-nav text-uppercase"  :to="{ hash: hashNavigation[index] }">
+            {{item}}
+            </router-link>
+            </v-list-item-title>
           </v-list-item>
           <v-row class="text-center justify-center mt-2">
             <v-col cols="3" sm="1" lg="1" class="pa-2 ma-2 text-right">
