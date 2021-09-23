@@ -87,7 +87,6 @@ export default {
   },
   methods: {
     InfiniteScroller(e) {
-      console.log(e);
     },
   },
   watch: {
