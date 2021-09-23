@@ -5,9 +5,7 @@
       width="418px"
       height="239px"
       persistent
-    
       class=" pa-1 ma-1 elevation-0"
-      
       style=""
       overlay-color="black"
     >
@@ -27,21 +25,19 @@
                 >$close</v-icon
               ></span>
             </v-col>
-
             <v-col cols="12" md="12" style="" class=" pa-1">
                 
                   <div class="" >
                 <v-card class="" color="#1b1d22" dark style="border-radius:9px;">
-        <v-card-text class="card__modal--subHeader ">
-            <span class="texto__interno">Install Metamask</span>
-            <v-btn fab x-small color="#1b1d22" class="boton-cerrar mr-2">
-                <v-img
-                    contain
-                    width="30"
-                    height="30"
-                    :src="require('@/assets/MetaMask_Fox.svg')"
+                <v-card-text class="card__modal--subHeader ">
+              <span class="texto__interno">Install Metamask</span>
+              <v-btn fab x-small color="#1b1d22" class="boton-cerrar mr-2">
+                  <v-img
+                      contain
+                      width="30"
+                      height="30"
+                      :src="require('@/assets/MetaMask_Fox.svg')"
                     alt="logo-blanco"
-                    
                   >
                   </v-img>
             </v-btn>
