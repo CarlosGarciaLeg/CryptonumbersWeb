@@ -1,6 +1,10 @@
 <template>
-  <v-card color="transparent" flat tile class="elevation-0 header-content">
-    <v-row class="pa-0 ma-0  d-flex "
+
+  <v-card flat tile class="elevation-0 header-content"
+  :class="{'mobile-card-container':$vuetify.breakpoint.xsOnly, 'desktop--container' : $vuetify.breakpoint.smAndUp}"
+  >
+  
+    <v-row class="pa-0 ma-0 transparent d-flex "
    
     >
       <v-col
@@ -15,15 +19,29 @@
         }"
       >
         <v-spacer></v-spacer>
+        <router-link to="/">
         <img
           :class="{
           'ml-15':  $vuetify.breakpoint.mdAndUp,
         }"
+        v-if="$vuetify.breakpoint.smAndUp"
           class="pa-2 ma-2"
-          width="200"
+          :width="{'200':$vuetify.breakpoint.smAndU}"
           :src="require('@/assets/logo-blanco.png')"
           alt=""
         />
+          <img
+          :class="{
+          'ml-15':  $vuetify.breakpoint.mdAndUp,
+        }"
+        v-else
+          class="pa-2 ma-2"
+          :width="{'200':$vuetify.breakpoint.smAndU}"
+          :src="require('@/assets/logo-azul-blanco.png')"
+          alt=""
+        />
+        
+        </router-link>
       </v-col>
 
       <v-col
@@ -34,14 +52,17 @@
         v-if="$vuetify.breakpoint.lgOnly"
         class="mt-3 text-center  ml-5 justify-center"
       >
+      
         <div
           v-for="(elem, item) in rutas"
           :key="item"
           v-ripple
-          class=" texto-nav text-uppercase align-center justify-center  pa-1  ma-1"
+          class="  texto-nav text-uppercase align-center justify-center  pa-1  ma-1"
           style=""
         >
+        <router-link   class="texto-nav text-uppercase"  :to="{ hash: hashNavigation[item] }">
           {{ elem }}
+          </router-link>
         </div>
         
       </v-col>
@@ -73,8 +94,8 @@
                 </v-btn>
               </template>
               <v-list light class="pa-0 ma-0 rounded-0">
-                <v-list-item link class="rounded-0">
-                  <v-list-item-title class="rounded-0 pa-0 ma-0"
+                <v-list-item link class="rounded-0 ">
+                  <v-list-item-title class="rounded-0  texto__expande" 
                     >EN</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -125,7 +146,10 @@
  
     <!-- Section Sub-header version responsive -->
     <v-row style="width:100%;" v-if="ocultar">
-      <v-col cols="12" class="ml-3 pa-0 ma-0">
+      <v-col cols="12" class=" pa-0 ma-0"
+      :class="{'ml-3': $vuetify.breakpoint.smAndUp,
+      'ml-1':$vuetify.breakpoint.xsOnly}"
+      >
         <template v-slot:activator="{ attrs, on }">
           <v-btn class="white--text" v-bind="attrs" v-on="on">
             Radius
@@ -136,11 +160,14 @@
           style="width:100%; color:white;"
           class="text-center elevation-1 pa-0 ma-0 ml-2 white-texct"
         >
-          <v-list-item v-for="item in rutas" :key="item" link>
+          <v-list-item v-for="(item, index) in rutas" :key="index" link>
             <v-list-item-title
               class="white--text text-uppercase"
-              v-text="item"
-            ></v-list-item-title>
+            >
+            <router-link   class="texto-nav text-uppercase"  :to="{ hash: hashNavigation[index] }">
+            {{item}}
+            </router-link>
+            </v-list-item-title>
           </v-list-item>
           <v-row class="text-center justify-center mt-2">
             <v-col cols="3" sm="1" lg="1" class="pa-2 ma-2 text-right">
@@ -167,7 +194,7 @@
 
                 <v-list light class="pa-0 ma-0 rounded-0">
                   <v-list-item link class="rounded-0">
-                    <v-list-item-title class="rounded-0 pa-0 ma-0"
+                    <v-list-item-title class="rounded-0 pa-0 ma-0 texto__expande" 
                       >EN</v-list-item-title
                     >
                   </v-list-item>
@@ -198,9 +225,41 @@ export default {
         "faq",
         "whiterpapper",
       ],
+      hashNavigation:[
+        '#inicio',
+        '#conocenos',
+        '#tokenomic',
+        '#team',
+        '#roadmap',
+        '#faq',
+        '#inicio'
+      ],
+      urlNavigation:[
+        '/',
+        '/',
+        'tokenomic',
+        '/',
+        'roadmap',
+        '/',
+        'whiterpapper'
+      ]
     };
   },
+   mounted () {
+      window.addEventListener('scroll', this.handleScroll)
+ },
   methods:{
+        // desplazamiento de etiquetas
+    goAnchor(selector) {
+      console.log("Entrooo");
+      this.$el.querySelector(selector).scrollIntoView({
+          behavior: "smooth",  // transición suave
+          block:    "start"  // El borde superior está al ras con la parte superior de la ventana. Defaults
+      });
+    },
+  scrollToNavegacion(elem) {
+return alert(elem);
+},
     ShowMenuMobile(){
          if(!this.ocultar){
            return this.ocultar = true
@@ -213,11 +272,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn696 {
+.mobile-card-container{
+  background-color: #1b1d22 !important;
+}
+
+.desktop--container{
+  background-color: rgba(0,0,0,0.0) !important;
+}
+a{
+  text-decoration: none;
+}
+.texto__expande {
+  color: #243ffa;
 }
 .btn--text {
   color: white !important;
 }
+
 
 .texto-nav {
   font-family: Roboto-Medium;

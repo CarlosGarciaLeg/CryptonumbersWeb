@@ -1,57 +1,39 @@
 <template>
   <div>
-    <sectionUno></sectionUno>
+    <!-- inciio landing -->
+    <section-inicio    id="inicio"></section-inicio>
 
-    <sectionDos></sectionDos>
+    <!-- section dos :: Conocennos -->
+    <section-conocenos id="conocenos"></section-conocenos>
 
-    <section-tres></section-tres>
+    <!-- section tres :: Obtener numero NFT -->
+    <section-tres      id="obtenernumero"></section-tres>
 
-    <section-cuatro></section-cuatro>
+    <!-- section cuatro :: que hacer con el numero -->
+    <section-cuatro    id="que-hacer-numerp"></section-cuatro>
 
-    <section-cinco></section-cinco>
+    <!-- section cinco :: tokenomic -->
+    <section-tokenomic id="tokenomic"></section-tokenomic>
 
-    <section-seis></section-seis>
+    <!-- section seois :: roadmap -->
+    <section-roadmap   id="roadmap"></section-roadmap>
 
-    <!-- section 4 -->
+    <!-- section siete :: team -->
+    <section-team      id="team"></section-team>
+    
+    <!-- section ocho :: faq -->
+    <section-faq       id="faq"></section-faq>
   </div>
 </template>
 
 <script>
-import SectionCinco from "../components/SectionCinco.vue";
-import SectionCuatro from "../components/SectionCuatro.vue";
 export default {
   name: "Home",
 
-  components: { SectionCuatro, SectionCinco },
+  components: {},
   data() {
-    return {
-      
-      colors: [
-        "indigo",
-        "warning",
-        "pink darken-2",
-        "#1b1d22 lighten-1",
-        "deep-purple accent-4",
-      ],
-
-      colors: [
-        "indigo",
-        "warning",
-        "pink darken-2",
-        "#1b1d22 lighten-1",
-        "deep-purple accent-4",
-      ],
-      offRipple: false,
-      infoCrypto: ["¿Qué es Cryptonumbers?", "¿Qué es NMBC?"],
-    };
+    return {};
   },
 };
 </script>
-<style lang="scss" scoped>
- 
-
-
-
-
-
-</style>
+<style lang="scss" scoped></style>

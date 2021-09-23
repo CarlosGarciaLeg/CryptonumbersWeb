@@ -1,40 +1,47 @@
 <template>
     <div>
               <!-- fin section cuatro -->
-    <section id="cabecera" class="background:#17191e; width:100%; height:100%;">
+    <section id="cabecera" class="width:100%; height:100%;"
+    :class=" { 'desktop-section4-container' : $vuetify.breakpoint.smAndUp,
+                       'mobile--container':$vuetify.breakpoint.xsOnly}"
+    >
       <v-row wrap class="fill-height justify-center align-center  pa-0 ma-0 ">
         <v-spacer></v-spacer>
         <v-col
           cols="12"
           md="12"
-          style="background:#1b1d22;"
-          class="align-center text-center mt-15 justify-center"
+        
+          class="align-center text-center justify-center"
+          :class="{'mt-15':$vuetify.breakpoint.smAndUp,'desktop-section4-container' : $vuetify.breakpoint.smAndUp,
+                       'mobile--container':$vuetify.breakpoint.xsOnly}"
         >
           <v-spacer class=""></v-spacer>
-          <v-row class="  mt-15 justify-center" style="width:100%; ">
+          <v-row class=" ma-0 mt-15 justify-center" style="width:100%; ">
             <v-col
               cols="12"
               md="9"
-              class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
+              class="pa-0 ma-0 fill-height d-flex flex-column justify-center align-center "
             >
               <span
-                class="tituloPortada__sectionThree  ma-2"
+                class="  ma-2"
                 data-aos="fade-up"
                 data-aos-duration="4000"
+                 :class="{'Cryptonumbers-y-su-t mt-7':$vuetify.breakpoint.xsOnly, 'tituloPortada__sectionThree':$vuetify.breakpoint.smAndUp}"
               >
                 ¿Cómo obtener mi número?
               </span>
               <v-row class="mt-2 justify-center   " style="width:100%; ">
                 <v-col
-                  cols="11"
+                  cols="12"
                   md="11"
                   class="pa-0 ma-0 fill-height d-flex flex-column justify-center align-center "
                 >
                   <span
-                    class="sectionThree__sub--description  ma-4"
+                    class="  ma-4"
                     style=" margin: 26px 110px 101px 119px;"
                     data-aos="fade"
                     data-aos-duration="4000"
+                       :class="{'salo-como-colateral': $vuetify.breakpoint.xsOnly, 'sectionThree__sub--description':$vuetify.breakpoint.smAndUp}"
                   >
                     Adquirir un número NFT de Cryptonumber es muy sencillo,
                     hemos pensado como sería la forma más rápida de hacerlo sin
@@ -44,7 +51,7 @@
               </v-row>
               <v-row class="mt-2 justify-center   " style="width:100%; ">
                 <v-col
-                  cols="8"
+                  cols="12"
                   md="3"
                   v-for="(item, i) in obtenerNum"
                   :key="i"
@@ -55,9 +62,12 @@
                     class=" elevation-0 pa-0 ma-0"
                     max-width="344"
                     color="transparent"
+                    :light="false"
+                      :class="{'texto__card': $vuetify.breakpoint.sxOnly}"
                   >
                     <v-card-text
                       class="text-left align-center   justify-center "
+                          :light="false"
                     >
                       <div style="width:100%;" class="text-left align-center ">
                         <v-row
@@ -70,10 +80,19 @@
                             class="pa-0  fill-height d-flex flex-column justify-center align-center"
                           >
                             <v-img
-                              width="122px"
-                              height="122px"
+                              v-if="$vuetify.breakpoint.smAndUp"
+                              :class="{'imgcard': $vuetify.breakpoint.smAndUp}"
                               class="pa-0 "
                               :src="require(`@/assets/img-paso-${i + 1}.png`)"
+                              alt=""
+                              data-aos="zoom-in"
+                              :data-aos-duration="1000 * (i + 1)"
+                            ></v-img>
+                            <v-img
+                              v-if="$vuetify.breakpoint.xsOnly"
+                              :class="{'imgcard': $vuetify.breakpoint.smAndUp}"
+                              class="pa-0 "
+                              :src="require(`@/assets/pasos/img-paso-${i + 1}.png`)"
                               alt=""
                               data-aos="zoom-in"
                               :data-aos-duration="1000 * (i + 1)"
@@ -84,14 +103,18 @@
                       <div
                         v-for="(elem, j) in item.info"
                         :key="j"
-                        data-aos="zoom-in"
-                        :data-aos-duration="1000 * (j + 1)"
+                     
+                        class=" "
                       >
-                        <p class="text--card__titulo mt-5 text-left">
+                        <p class=" "
+                         :class="{'texto--mobile-nft mt-5 texto__card': $vuetify.breakpoint.xsOnly, 'text--card__titulo mt-5 text-left':$vuetify.breakpoint.smAndUp}"
+                        >
                           {{ elem.titulo }}
                         </p>
 
-                        <div class="text--card__subtitulo text-left">
+                        <div class=" "
+                          :class="{'salo-como-colateral ma-0 pa-0 text-center texto__card': $vuetify.breakpoint.xsOnly, 'text--card__subtitulo text-left':$vuetify.breakpoint.smAndUp}"
+                        >
                           {{ elem.description }}
                         </div>
                       </div>
@@ -100,19 +123,20 @@
                   </v-card>
                 </v-col>
               </v-row>
-              <v-row class=" justify-center   " style="width:100%; ">
+              <v-row class=" justify-center  ma-0 " style="width:100%; ">
                 <v-col
-                  cols="5"
+                  cols="12"
                   md="3"
                   class=" fill-height d-flex flex-column justify-center align-center "
                 >
                   <v-btn
                     elevation="4"
                     color="#243ffa"
-                    max-width="180px"
+                    height="45"
+                  :block="$vuetify.breakpoint.xsOnly"
                     style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
-                  >
-                    Obtener Número
+                    @click="obtenerNumero()"
+                  >Obtener Número
                   </v-btn>
                 </v-col>
               </v-row>
@@ -160,6 +184,12 @@
         },
       ],
          }
+     },
+     methods:{
+       obtenerNumero(){
+         return  this.$router.push({ name: 'Search' })
+
+       }
      }   
     }
 </script>
@@ -184,6 +214,10 @@
     display: none;
   }
 }
+
+.texto__card{
+  color:#333333 !important;
+}
 .tituloPortada__sectionThree {
   font-family: Ubuntu;
   font-size: 36px;
@@ -206,5 +240,28 @@
   letter-spacing: 0.21px;
   text-align: center;
   color: #fff;
+}
+
+.text--card__subtitulo-nft{
+  font-family: Ubuntu;
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.58;
+  letter-spacing: 0.24px;
+  text-align: center;
+  color: white;
+}
+.imgcard{
+  width:122px; height:122px;
+}
+
+.desktop-section4-container{
+background:#17191e !important; 
+}
+
+.mobile--container{
+  background: #f9faff !important;
 }
 </style>
