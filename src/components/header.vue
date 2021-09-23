@@ -7,10 +7,9 @@
     :class="{
       navbar: shownavBarFixed,
       'mobile-card-container': $vuetify.breakpoint.xsOnly,
-      'desktop--container': $vuetify.breakpoint.smAndUp && showNavbar,
+      'desktop--container': $vuetify.breakpoint.smAndUp,
       'navbar--hidden': !showNavbar,
     }"
-    dark
   >
     <v-row class="pa-0 ma-0 d-flex ">
       <v-col
@@ -51,11 +50,11 @@
 
       <v-col
         cols="12"
-        md="6"
+        md="5"
         xs="12"
-        lg="6"
+        lg="5"
         v-if="$vuetify.breakpoint.lgOnly"
-        class="mt-3 text-center  ml-5 justify-center"
+        class="mt-3 text-center   ml-5 justify-center"
       >
         <div
           v-for="(elem, item) in rutas"
@@ -73,9 +72,9 @@
         </div>
       </v-col>
 
-      <v-col cols="5" md="7" lg="2" sm="6" class=" pa-0 ma-0 flex-nowrap">
+      <v-col cols="5" md="7" lg="3" sm="6" class=" pa-0 ma-0 flex-nowrap">
         <v-row class="pa-0 ma-0 justify-center align-center ">
-          <v-col cols="7" sm="7" lg="7" class="pa-2 ma-2  text-right">
+          <v-col cols="7" sm="7" lg="5" class="pa-2 ma-2  text-right">
             <v-btn
               elevation="4"
               color="#b0b0b0"
@@ -92,7 +91,7 @@
             cols="3"
             sm="3"
             lg="3"
-            class="pa-2 ma-2 elevation-0"
+            class="pa-2 ma-2  elevation-0"
           >
             <v-menu offset-y dark>
               <template v-slot:activator="{ attrs, on }">
@@ -111,6 +110,46 @@
                 </v-list-item>
               </v-list>
             </v-menu>
+          </v-col>
+          <v-col
+            v-if="$vuetify.breakpoint.smAndUp"
+            cols="4"
+            md="1"
+            class="  d-inline-flex  align-stretch "
+          >
+            <v-btn
+              fab
+              small
+              color="rgba(0,0,0,0.0)"
+              dark
+              class="boton-social ml-2"
+            >
+              <v-img
+                contain
+                width="40px"
+                height="40px"
+                :src="require('@/assets/icon-git.png')"
+                alt=""
+              >
+              </v-img>
+            </v-btn>
+            <v-btn
+              fab
+              small
+              color="rgba(0,0,0,0.0)"
+              dark
+              class="boton-social pa-0 ma-0 ml-3"
+            >
+              <v-img
+                contain
+                width="40px"
+                height="40px"
+                class=""
+                :src="require('@/assets/icon-telegram.png')"
+                alt=""
+              >
+              </v-img>
+            </v-btn>
           </v-col>
           <v-col
             v-if="$vuetify.breakpoint.smAndDown"
@@ -227,6 +266,48 @@
               </v-menu>
             </v-col>
           </v-row>
+          <v-row class="text-center justify-center mt-2">
+            <v-col
+              cols="4"
+              md="1"
+              class="pa-2 ma-1  d-inline-flex  align-center justify-center "
+            >
+              <v-btn
+                fab
+                small
+                color="rgba(0,0,0,0.0)"
+                dark
+                class="boton-social ml-2"
+              >
+                <v-img
+                  contain
+                  width="40px"
+                  height="40px"
+                  :src="require('@/assets/icon-git.png')"
+                  alt=""
+                >
+                </v-img>
+              </v-btn>
+               <v-btn
+                      fab
+                    small
+                      color="rgba(0,0,0,0.0)"
+                      dark
+                      class="boton-social pa-0 ma-0 ml-3"
+                    >
+                   <v-img
+                   
+                     contain
+                   width="40px"
+                   height="40px"
+                   class=""
+                    :src="require('@/assets/icon-telegram.png')"
+                    alt=""
+                  >
+                  </v-img>
+                </v-btn>
+            </v-col>
+          </v-row>
         </v-list>
       </v-col>
     </v-row>
@@ -275,7 +356,9 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
+    this.onScroll();
   },
+
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll);
   },
@@ -284,9 +367,9 @@ export default {
     onScroll() {
       var el = document.getElementById("navbarra");
       const currentScrollPosition =
-      window.pageYOffset || document.documentElement.scrollTop;
+        window.pageYOffset || document.documentElement.scrollTop;
 
-      if (currentScrollPosition == 0) {
+      if (currentScrollPosition === 0) {
         el.classList.remove("navbar");
       } else {
         el.classList.add("navbar");
@@ -298,7 +381,6 @@ export default {
       this.lastScrollPosition = currentScrollPosition;
     },
     ocultarMenu() {
-      console.log("entro");
       if (this.ocultar) {
         return (this.ocultar = false);
       } else {
@@ -370,5 +452,8 @@ a {
 .navbar.navbar--hidden {
   box-shadow: none;
   transform: translate3d(0, -100%, 0);
+}
+
+.boton-social {
 }
 </style>
