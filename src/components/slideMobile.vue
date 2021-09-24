@@ -174,7 +174,7 @@
         {
           images: [
             {
-              caption: "Presentación del proyecto",
+             caption: "Presentación del proyecto",
               text1: ["· Creación de identidad corporativa"],
               text2: ["· Creación de web corporativa"],
             },
@@ -184,9 +184,9 @@
         {
           images: [
             {
-              caption: "Presentación del proyecto",
-              text1: ["· Creación de identidad corporativa"],
-              text2: ["· Creación de web corporativa"],
+            caption: "WEB3",
+              text1: ["· Integracion frontend con dAPP"],
+              text2: ["· Pruebas testeo."],
             },
           
           ],
@@ -194,9 +194,9 @@
         {
           images: [
             {
-              caption: "Presentación del proyecto",
-              text1: ["· Creación de identidad corporativa"],
-              text2: ["· Creación de web corporativa"],
+              caption: "Testnet",
+              text1: ["· Airdrop NMBC mediante telegram"],
+              text2: ["· Pruebas en tesnet con la comunidad"],
             },
           
           ],
