@@ -331,7 +331,7 @@ export default {
         "equipo",
         "roadmap",
         "faq",
-        "whiterpapper",
+        "whitepapper",
       ],
       hashNavigation: [
         "#inicio",
@@ -349,7 +349,7 @@ export default {
         "/",
         "roadmap",
         "/",
-        "whiterpapper",
+        "whitepapper",
       ],
     };
   },

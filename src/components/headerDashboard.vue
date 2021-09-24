@@ -221,7 +221,7 @@ export default {
         "equipo",
         "roadmap",
         "faq",
-        "whiterpapper",
+        "whitepapper",
       ],
     };
   },
