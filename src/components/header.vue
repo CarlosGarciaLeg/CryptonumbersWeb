@@ -3,12 +3,12 @@
     flat
     tile
     id="navbarra"
-    class="elevation-0  header-content  "
+    class="  header-content  "
     :class="{
       navbar: shownavBarFixed,
       'mobile-card-container': $vuetify.breakpoint.xsOnly,
-      'desktop--container': $vuetify.breakpoint.smAndUp,
-      'navbar--hidden': !showNavbar,
+      'desktop--container ': $vuetify.breakpoint.smAndUp,
+      'navbar--hidden ': !showNavbar,
     }"
   >
     <v-row class="pa-0 ma-0 d-flex ">
@@ -54,13 +54,13 @@
         xs="12"
         lg="5"
         v-if="$vuetify.breakpoint.lgOnly"
-        class="mt-3 text-center   ml-5 justify-center"
+        class="mt-3 text-end  ml-5 justify-end"
       >
         <div
           v-for="(elem, item) in rutas"
           :key="item"
           v-ripple
-          class="  texto-nav text-uppercase align-center justify-center  pa-1  ma-1"
+          class="  texto-nav text-uppercase align-end justify-end  pa-1 mt-3 ma-1"
           style=""
         >
           <router-link
@@ -72,7 +72,7 @@
         </div>
       </v-col>
 
-      <v-col cols="5" md="7" lg="3" sm="6" class=" pa-0 ma-0 flex-nowrap">
+      <v-col cols="5" md="7" lg="3" sm="6" class=" mt-2 pa-0 ma-0 flex-nowrap">
         <v-row class="pa-0 ma-0 justify-center align-center ">
           <v-col cols="7" sm="7" lg="5" class="pa-2 ma-2  text-right">
             <v-btn
@@ -288,24 +288,23 @@
                 >
                 </v-img>
               </v-btn>
-               <v-btn
-                      fab
-                    small
-                      color="rgba(0,0,0,0.0)"
-                      dark
-                      class="boton-social pa-0 ma-0 ml-3"
-                    >
-                   <v-img
-                   
-                     contain
-                   width="40px"
-                   height="40px"
-                   class=""
-                    :src="require('@/assets/icon-telegram.png')"
-                    alt=""
-                  >
-                  </v-img>
-                </v-btn>
+              <v-btn
+                fab
+                small
+                color="rgba(0,0,0,0.0)"
+                dark
+                class="boton-social pa-0 ma-0 ml-3"
+              >
+                <v-img
+                  contain
+                  width="40px"
+                  height="40px"
+                  class=""
+                  :src="require('@/assets/icon-telegram.png')"
+                  alt=""
+                >
+                </v-img>
+              </v-btn>
             </v-col>
           </v-row>
         </v-list>
