@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import state from './state'
 import getWeb3 from '../util/getWeb3'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   strict:true,
-  state: {
-  },
+  state,
   mutations: {
-    registerWeb3Instance (state, payload) {
+      registerWeb3Instance(state, payload) {
       console.log('registerWeb3instance Mutation being executed', payload)
       let result = payload
       let web3Copy = state.web3
