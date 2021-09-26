@@ -56,13 +56,13 @@
                     >
                       <v-col
                         cols="12"
-                        md="7"
+                        md="10"
                         class="pa-0 fill-height d-flex flex-column justify-center align-center"
                       >
                         <v-img
                           contain
                           class="pa-0 "
-                          :src="require(`@/assets/user-img.png`)"
+                          :src="require(`@/assets/` + item.img)"
                           alt=""
                         ></v-img>
                       </v-col>
@@ -71,11 +71,18 @@
                   <div class=" mt-2 text-center"
                    :class="{'texto--mobile-nft': $vuetify.breakpoint.xsOnly, 'text--card__titulo':$vuetify.breakpoint.smAndUp}"
                   >
-                  {{item.nombre}}-{{i+1}}
+                  {{item.nombre}}
                     <p class=" text-center pa-0 ma-0"
                       :class="{'salo-como-colateral': $vuetify.breakpoint.xsOnly, 'text--card__subtitulo':$vuetify.breakpoint.smAndUp}"
                     >
-                    {{item.cargo}}
+                      <v-list-item
+                        v-for="(cargo, i) in item.cargos"
+                        :key="i"
+                      >
+                          <v-list-item-content >
+                            <v-list-item-title class=" text-center pa-0 ma-0" :class="{'salo-como-colateral': $vuetify.breakpoint.xsOnly, 'text--card__subtitulo':$vuetify.breakpoint.smAndUp}" v-text="cargo"></v-list-item-title>
+                          </v-list-item-content>
+                      </v-list-item>
                     </p>
                   </div>
                 </v-card-text>
@@ -100,28 +107,34 @@
     
             equipo:[
               {
-                nombre:'Nombre',
-                cargo:'Cargo'
+                nombre:'Carlos García Legaz',
+                cargos:['CEO','Arquitecto Blockchain','20 años en emprendimientos tech'],
+                img: 'Carlos.png'
               },
                 {
-                nombre:'Nombre',
-                cargo:'Cargo'
+                nombre:'Juan Manuel Dìaz',
+                cargos:['Blockchain Entrepeneur','En blockchain desde la edad de bronce'],
+                img: 'Juanma.png'
               },
                 {
-                nombre:'Nombre',
-                cargo:'Cargo'
+                nombre:'Florentino Riesgo',
+                cargos:['20 años liderando compañias','Apasionado de Blockchain'],
+                img: 'Florentino.png'
               },
                 {
-                nombre:'Nombre',
-                cargo:'Cargo'
+                nombre:'Carlos Javier Velázquez',
+                cargos:['Back-end Developer','15 años en el desarrollo de sistemas'],
+                img: 'Javier.png'
               },
                 {
-                nombre:'Nombre',
-                cargo:'Cargo'
+                nombre:'Alex Veló',
+                cargos:['Front-end Developer','Diseñador UX'],
+                img: 'Alex.png'
               },
                 {
-                nombre:'Nombre',
-                cargo:'Cargo'
+                nombre:'Nicolas E. Gimenez',
+                cargos:['Solidity Developer','Front-end Developer','Defilab Co-funder'],
+                img: 'Nico.png'
               },
               
             ]  
