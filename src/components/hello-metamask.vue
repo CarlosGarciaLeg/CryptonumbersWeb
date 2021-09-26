@@ -3,7 +3,7 @@
         <p>Metamask: {{ web3.isInjected }}</p>
         <p>Network: {{ web3.networkId }}</p>
         <p>Account: {{ web3.coinbase }}</p>
-        <p>Balance: {{ web3.isInjected }}</p>
+        <p>Balance: {{ web3.balance }}</p>
     </div>
 </template>
 
