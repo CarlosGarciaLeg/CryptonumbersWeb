@@ -178,7 +178,6 @@
               text1: ["· Creación de identidad corporativa"],
               text2: ["· Creación de web corporativa"],
             },
-        
           ],
         },
         {
@@ -188,7 +187,6 @@
               text1: ["· Integracion frontend con dAPP"],
               text2: ["· Pruebas testeo."],
             },
-          
           ],
         },
         {
@@ -198,7 +196,6 @@
               text1: ["· Airdrop NMBC mediante telegram"],
               text2: ["· Pruebas en tesnet con la comunidad"],
             },
-          
           ],
         },
       ],
