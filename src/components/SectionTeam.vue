@@ -44,8 +44,8 @@
               v-for="(item, i) in equipo"
               :key="i"
               class="pa-0 ma-0  mt-5    justify-center align-center "
-              data-aos="zoom-in"
-              :data-aos-duration="2500"
+            
+              
             >
               <v-card class=" elevation-0 pa-0 ma-0" color="transparent">
                 <v-card-text class="text-left align-center   justify-center ">
@@ -59,16 +59,23 @@
                         md="10"
                         class="pa-0 fill-height d-flex flex-column justify-center align-center"
                       >
-                        <v-img
-                          contain
-                          class="pa-0 "
-                          :src="require(`@/assets/` + item.img)"
-                          alt=""
-                        ></v-img>
+
+                      <div class="border--team pa-3 ma-2 rounded-circle" style="border: 3px dashed #243ffa;">
+                            <v-img
+                              contain
+                              class="pa-0  rounded-circle  img--team"
+                              :src="require(`@/assets/team/` + item.img)"
+                              alt=""
+                              width="230"
+                                v-ripple
+                              style=" 
+                                    "
+                            ></v-img>
+                        </div>
                       </v-col>
                     </v-row>
                   </div>
-                  <div class=" mt-2 text-center"
+                  <div class=" mt-3 text-center"
                    :class="{'texto--mobile-nft': $vuetify.breakpoint.xsOnly, 'text--card__titulo':$vuetify.breakpoint.smAndUp}"
                   >
                   {{item.nombre}}
@@ -78,9 +85,13 @@
                       <v-list-item
                         v-for="(cargo, i) in item.cargos"
                         :key="i"
+                        class="pa-0 ma-0"
+                        style="min-height: 0px; !important;"
                       >
-                          <v-list-item-content >
-                            <v-list-item-title class=" text-center pa-0 ma-0" :class="{'salo-como-colateral': $vuetify.breakpoint.xsOnly, 'text--card__subtitulo':$vuetify.breakpoint.smAndUp}" v-text="cargo"></v-list-item-title>
+                          <v-list-item-content  class="pa-0 ma-0">
+                            <v-list-item-title class=" text-center pa-0 ma-0" 
+                            :class="{'salo-como-colateral': $vuetify.breakpoint.xsOnly, 'text--card__subtitulo':$vuetify.breakpoint.smAndUp}"
+                             v-text="cargo"></v-list-item-title>
                           </v-list-item-content>
                       </v-list-item>
                     </p>
@@ -109,32 +120,32 @@
               {
                 nombre:'Carlos García Legaz',
                 cargos:['CEO','Arquitecto Blockchain','20 años en emprendimientos tech'],
-                img: 'Carlos.png'
+                img: 'Carlos-team.png'
               },
                 {
                 nombre:'Juan Manuel Dìaz',
                 cargos:['Blockchain Entrepeneur','En blockchain desde la edad de bronce'],
-                img: 'Juanma.png'
+                img: 'Juanma-team.png'
               },
                 {
                 nombre:'Florentino Riesgo',
                 cargos:['20 años liderando compañias','Apasionado de Blockchain'],
-                img: 'Florentino.png'
+               img: 'Florentino-team.png'
               },
                 {
                 nombre:'Carlos Javier Velázquez',
                 cargos:['Back-end Developer','15 años en el desarrollo de sistemas'],
-                img: 'Javier.png'
+                img: 'Javier-team.png'
               },
                 {
                 nombre:'Alex Veló',
                 cargos:['Front-end Developer','Diseñador UX'],
-                img: 'Alex.png'
+                img: 'alex-team.png'
               },
                 {
                 nombre:'Nicolas E. Gimenez',
                 cargos:['Solidity Developer','Front-end Developer','Defilab Co-funder'],
-                img: 'Nico.png'
+                img: 'Nico-team.png'
               },
               
             ]  
@@ -149,5 +160,25 @@
   background-size: cover;
 }
 
+.border--team{
+  
+}
+
+.img--team {
+   transition: all .2s ease-in-out; 
+  cursor: pointer;
+  filter: black; /* IE6-9 */
+  -webkit-filter: grayscale(2); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+/* Disable grayscale on hover */
+.img--team:hover {
+  transition: all .2s ease-in-out; 
+  transform: scale(1.09);
+  
+  -webkit-filter: grayscale(0);
+  filter: none;
+}
 
 </style>
