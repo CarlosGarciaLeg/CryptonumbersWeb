@@ -19,7 +19,13 @@ export default new Vuex.Store({
       web3Copy.isInjected = result.injectedWeb3
       web3Copy.web3Instance = result.web3
       state.web3 = web3Copy
+      },
+      errorHandler(state, data){
+        let web3Copy = state.web3
+        web3Copy.error = data
+        state.web3 = web3Copy
       }
+
   },
   actions: {
     registerWeb3 ({commit}) {
@@ -29,8 +35,12 @@ export default new Vuex.Store({
         console.log('committing result to registerWeb3Instance mutation')
         commit('registerWeb3Instance', result)
       }).catch(e => {
-        console.log('error in action registerWeb3', e)
+        console.log('Error in action registerWeb3', e)
+        commit('errorHandler',e)
       })
+    },
+    errorHandler({ commit }){
+       commit('errorHandler', 'mensaje')
     }
   },
   modules: {
