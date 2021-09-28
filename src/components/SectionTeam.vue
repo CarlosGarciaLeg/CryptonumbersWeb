@@ -7,7 +7,7 @@
     <section id="cabecera" 
     :style="{'background:#17191e; width:100%; height:100%;':$vuetify.breakpoint.smAndUp}"
     >
-      <v-row class="justify-center" style="width:100%; ">
+      <v-row class="justify-center ma-0" style="width:100%; ">
         <v-col
           cols="12"
           md="12"
@@ -37,7 +37,7 @@
           class="pa-0 ma-0   fill-height d-flex flex-column justify-center align-center "
            :class="{'mt-15':$vuetify.breakpoint.smAndUp, 'mt-5':$vuetify.breakpoint.xsOnly}"
         >
-          <v-row>
+          <v-row class="ma-0">
             <v-col
               cols="12"
               md="4"
@@ -62,7 +62,11 @@
                         class="pa-0 fill-height d-flex  flex-column justify-center align-center"
                       >
 
-                      <div class="border--team pa-3 ma-2  rounded-circle" style="border: 3px dashed #243ffa;">
+                      <div class="border--team pa-3 ma-2  rounded-circle" style="border: 3px dashed #243ffa;"
+                       data-aos="fade"
+                              :data-aos-duration="2500"
+                      
+                      >
                             <v-img
                               contain
                               class="pa-0  rounded-circle  img--team"

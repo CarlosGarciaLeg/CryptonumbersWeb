@@ -1,6 +1,5 @@
 <template>
     <div>
-     
       <section 
       :class="{'section--seis':$vuetify.breakpoint.smAndUp}"
       >
@@ -19,7 +18,7 @@
                 class="pa-0 ma-0  mt-15 fill-height d-flex flex-column justify-center align-center "
               >
                 <span class=""
-                 :class="{'texto--mobile-team  text-center':$vuetify.breakpoint.xsOnly, 'sectionfour__sub--titulo text-left ml-2':$vuetify.breakpoint.smAndUp}"
+                 :class="{'texto--mobile-team  text-center':$vuetify.breakpoint.xsOnly, 'sectionfour__sub--titulo text-left ml-0':$vuetify.breakpoint.smAndUp}"
                 >
                   FAQ
                 </span>
