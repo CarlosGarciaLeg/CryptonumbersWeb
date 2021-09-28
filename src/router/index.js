@@ -27,9 +27,9 @@ const routes = [
       component: () => import(/* webpackChunkName: "about" */ '../views/Roadmap.vue')
     },
     {
-      path: '/whiterpapper',
-      name: 'whiterpapper',
-      component: () => import(/* webpackChunkName: "about" */ '../views/Whiterpapper.vue')
+      path: '/whitepapper',
+      name: 'whitepapper',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Whitepapper.vue')
     },
     {
       path: '/',
