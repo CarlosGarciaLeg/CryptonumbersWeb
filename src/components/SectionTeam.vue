@@ -33,8 +33,9 @@
 
         <v-col
           cols="12"
-          md="8"
-          class="pa-0 ma-0  mt-5 fill-height d-flex flex-column justify-center align-center "
+          md="9"
+          class="pa-0 ma-0   fill-height d-flex flex-column justify-center align-center "
+           :class="{'mt-15':$vuetify.breakpoint.smAndUp, 'mt-5':$vuetify.breakpoint.xsOnly}"
         >
           <v-row>
             <v-col
@@ -43,12 +44,13 @@
               sm="4"
               v-for="(item, i) in equipo"
               :key="i"
-              class="pa-0 ma-0  mt-5    justify-center align-center "
+             
+              class="pa-0 ma-0  mt-5 justify-center align-center "
             
               
             >
-              <v-card class=" elevation-0 pa-0 ma-0" color="transparent">
-                <v-card-text class="text-left align-center   justify-center ">
+              <v-card class=" elevation-0 pa-0 ma-0 " color="transparent">
+                <v-card-text class="text-left align-center justify-center ">
                   <div style="width:100%;" class="text-center align-center ">
                     <v-row
                       class=" pa-0 ma-0 mt-2 justify-center"
@@ -57,17 +59,17 @@
                       <v-col
                         cols="12"
                         md="10"
-                        class="pa-0 fill-height d-flex flex-column justify-center align-center"
+                        class="pa-0 fill-height d-flex  flex-column justify-center align-center"
                       >
 
-                      <div class="border--team pa-3 ma-2 rounded-circle" style="border: 3px dashed #243ffa;">
+                      <div class="border--team pa-3 ma-2  rounded-circle" style="border: 3px dashed #243ffa;">
                             <v-img
                               contain
                               class="pa-0  rounded-circle  img--team"
                               :src="require(`@/assets/team/` + item.img)"
                               alt=""
                               width="230"
-                                v-ripple
+                              v-ripple
                               style=" 
                                     "
                             ></v-img>
