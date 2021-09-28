@@ -63,11 +63,11 @@
                       >
 
                       <div class="border--team pa-3 ma-2  rounded-circle" style="border: 3px dashed #243ffa;"
-                       data-aos="fade"
-                              :data-aos-duration="2500"
+                     
                       
                       >
-                            <v-img
+                      <div class=" rounded-circle " :class="`img--team imagen-team--${i}`"></div>
+                            <!-- <v-img
                               contain
                               class="pa-0  rounded-circle  img--team"
                               :src="require(`@/assets/team/` + item.img)"
@@ -76,7 +76,7 @@
                               v-ripple
                               style=" 
                                     "
-                            ></v-img>
+                            ></v-img> -->
                         </div>
                       </v-col>
                     </v-row>
@@ -126,32 +126,32 @@
               {
                 nombre:'Carlos García Legaz',
                 cargos:['CEO','Arquitecto Blockchain','20 años en emprendimientos tech'],
-                img: 'Carlos-team.png'
+                
               },
                 {
                 nombre:'Juan Manuel Dìaz',
                 cargos:['Blockchain Entrepeneur','En blockchain desde la edad de bronce'],
-                img: 'Juanma-team.png'
+             
               },
                 {
                 nombre:'Florentino Riesgo',
                 cargos:['20 años liderando compañias','Apasionado de Blockchain'],
-               img: 'Florentino-team.png'
+              
               },
                 {
                 nombre:'Carlos Javier Velázquez',
                 cargos:['Back-end Developer','15 años en el desarrollo de sistemas'],
-                img: 'Javier-team.png'
+              
               },
                 {
                 nombre:'Alex Veló',
                 cargos:['Front-end Developer','Diseñador UX'],
-                img: 'alex-team.png'
+              
               },
                 {
                 nombre:'Nicolas E. Gimenez',
                 cargos:['Solidity Developer','Front-end Developer','Defilab Co-funder'],
-                img: 'Nico-team.png'
+              
               },
               
             ]  
@@ -164,10 +164,43 @@
 .section--seis {
   background-image: url("../assets/img/background-4-copy.png");
   background-size: cover;
-}
-
-.border--team{
   
+}
+.imagen-team--0{
+  background-image: url("../assets/team/Carlos-team.png");
+  background-size: cover;
+  width: 230px;
+  height: 230px;
+}
+.imagen-team--1{
+  background-image: url("../assets/team/Juanma-team.png");
+  background-size: cover;
+    width: 230px;
+  height: 230px;
+}
+.imagen-team--2{
+  background-image: url("../assets/team/Florentino-team.png");
+  background-size: cover;
+    width: 230px;
+  height: 230px;
+}
+.imagen-team--3{
+  background-image: url("../assets/team/Javier-team.png");
+  background-size: cover;
+    width: 230px;
+  height: 230px;
+}
+.imagen-team--4{
+  background-image: url("../assets/team/alex-team.png");
+  background-size: cover;
+    width: 230px;
+  height: 230px;
+}
+.imagen-team--5{
+  background-image: url("../assets/team/Nico-team.png");
+  background-size: cover;
+    width: 230px;
+  height: 230px;
 }
 
 .img--team {
