@@ -150,7 +150,7 @@
               },
                 {
                 nombre:'Nicolas E. Gimenez',
-                cargos:['Solidity Developer','Front-end Developer','Defilab Co-funder'],
+                cargos:['Solidity Developer','Front-end Developer','Defilab Co-founder'],
               
               },
               
