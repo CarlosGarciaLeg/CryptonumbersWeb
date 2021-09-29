@@ -1,5 +1,6 @@
 <template>
   <v-card color="#141414" flat tile class="elevation-0" height="78">
+    <ErrorMessage />
     <v-row class="pa-0 ma-0  justify-space-between">
       <v-col
         cols="7"
@@ -59,7 +60,8 @@
                     color: #fff;"
                   v-if="$vuetify.breakpoint.smAndUp"
                 >
-                  100,45114710
+
+                  {{ web3.balance / 1000000000000000000 }}
                   <span
                     class="ml-2"
                     style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
@@ -89,10 +91,16 @@
                     text-transform: lowercase;
                     "
                   v-if="$vuetify.breakpoint.smAndUp"
+                  @mouseover="filterBtnTTip = true"
+                  @mouseleave="filterBtnTTip = false"
                 >
-                  0X0d17…esadb
+                  <p >{{ web3.coinbase }}</p>
                 </v-btn>
-
+                <v-tooltip bottom
+                  v-model="filterBtnTTip"
+                >
+                  {{ web3.coinbase }}
+                </v-tooltip>
                 <v-btn
                   elevation="4"
                   color="rgba(176,176,176,0.38)"
@@ -150,7 +158,7 @@
                     color: #fff;"
                   v-if="$vuetify.breakpoint.smAndUp"
                 >
-                  100,45114710
+                  {{ web3.balance / 1000000000000000000 }}
                   <span
                     class="ml-2"
                     style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
@@ -181,7 +189,7 @@
                     "
                   v-if="$vuetify.breakpoint.smAndUp"
                 >
-                  0X0d17…esadb
+                  {{ web3.coinbase }}
                 </v-btn>
 
                 <v-btn
@@ -207,9 +215,25 @@
 </template>
 
 <script>
+import ErrorMessage from "@/components/ErrorMessage.vue";
+
 export default {
+  components: {  ErrorMessage },
+  beforeCreate () {
+    console.log('registerWeb3 Action dispatched from casino-dapp.vue')
+    this.$store.dispatch('registerWeb3')
+  },
+  mounted (){
+  },
+  computed: {
+    web3 () {
+      return this.$store.state.web3
+    }
+    
+  },
   data() {
     return {
+      filterBtnTTip: false,
       tab: "",
       desactivar: false,
       ocultar: false,
@@ -270,5 +294,15 @@ export default {
 }
 .img--logo {
   margin-left: -250px;
+}
+p {
+  width: 99px;
+  
+  /* BOTH of the following are required for text-overflow */
+  white-space: nowrap;
+  overflow: hidden;
+}
+.overflow-ellipsis {
+  text-overflow: ellipsis;
 }
 </style>

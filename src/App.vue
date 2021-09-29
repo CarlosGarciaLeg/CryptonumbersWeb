@@ -1,5 +1,6 @@
 <template>
  <div id="app">
+   
     <v-app style="overflow-x: hidden;"
     :class="{'mobile--container':$vuetify.breakpoint.xsOnly,'desktop--container':$vuetify.breakpoint.smAndUp }"
     >
@@ -13,14 +14,21 @@
                     <footer-app ></footer-app>
         </v-container>
     </v-app>
+    
   </div>
 </template>
 
 <script>
 import headerDashboard from './components/headerDashboard.vue';
+
+
 export default {
   components: { headerDashboard },
   name: 'App',
+  beforeCreate () {
+    console.log('registerWeb3 Action dispatched from App.vue')
+    this.$store.dispatch('registerWeb3')
+  },
   data: () => ({
     //
   }),

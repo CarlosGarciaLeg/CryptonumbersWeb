@@ -5,6 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+
 Vue.config.productionTip = false
 
 // header
@@ -71,7 +72,7 @@ Vue.component("slide-mobile", slidemobile);
 new Vue({
   router,
   store,
-  vuetify,
+    vuetify,
   created(){
     AOS.init({
       // Global settings:

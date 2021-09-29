@@ -83,7 +83,9 @@
               style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
               v-if="$vuetify.breakpoint.smAndUp"
             >
-              Acceso APP
+            <router-link   class="texto-nav text-uppercase"  to="Search">
+              Acceso Dapp
+            </router-link>
             </v-btn>
           </v-col>
           <v-col
@@ -241,7 +243,9 @@
                 active-class="btn--text "
                 style="font-family: Roboto-Medium; color:white; font-size:15px; text-transform: unset !important;"
               >
-                Acceso APP
+                <router-link   class="texto-nav text-uppercase"  to="Search">
+                  Acceso Dapp
+                </router-link>
               </v-btn>
             </v-col>
             <v-col cols="3" sm="1" lg="1" class="pa-0 ma-0 ml-3  elevation-0">
