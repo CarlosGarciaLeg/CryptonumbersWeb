@@ -1,16 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Landing from '../views/Landing.vue'
-import CryptonumDapp from '@/components/cryptonum-dapp.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
-    {
-      path: '/dapp',
-      name: 'cryptonum-dapp',
-      component: CryptonumDapp
-    },
     {
       path: '/',
       name: 'Landing',

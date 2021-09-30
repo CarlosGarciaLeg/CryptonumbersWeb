@@ -13,6 +13,7 @@ export default new Vuex.Store({
       console.log('registerWeb3instance Mutation being executed', payload)
       let result = payload
       let web3Copy = state.web3
+      console.log(web3Copy)
       web3Copy.coinbase = result.coinbase
       web3Copy.networkId = result.networkId
       web3Copy.balance = parseInt(result.balance, 10)
@@ -21,6 +22,7 @@ export default new Vuex.Store({
       state.web3 = web3Copy
       },
       errorHandler(state, data){
+        console.log(state)
         let web3Copy = state.web3
         web3Copy.error = data
         state.web3 = web3Copy
@@ -28,21 +30,19 @@ export default new Vuex.Store({
 
   },
   actions: {
-    registerWeb3 ({commit}) {
+      async registerWeb3 ({commit}) {
       console.log('registerWeb3 Action being executed')
-      
-      getWeb3.then(result => {
+      //const web3 = await getWeb3();
+      getWeb3().then(result => {
         console.log('committing result to registerWeb3Instance mutation')
         commit('registerWeb3Instance', result)
       }).catch(e => {
         console.log('Error in action registerWeb3', e)
         commit('errorHandler',e)
       })
-    },
-    errorHandler({ commit }){
-       commit('errorHandler', 'mensaje')
     }
   },
   modules: {
+    
   }
 })

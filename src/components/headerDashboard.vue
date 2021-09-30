@@ -220,16 +220,14 @@ import ErrorMessage from "@/components/ErrorMessage.vue";
 export default {
   components: {  ErrorMessage },
   beforeCreate () {
-    console.log('registerWeb3 Action dispatched from casino-dapp.vue')
+    console.log('registerWeb3 Action dispatched from headerDashboard.vue')
     this.$store.dispatch('registerWeb3')
-  },
-  mounted (){
+    
   },
   computed: {
     web3 () {
       return this.$store.state.web3
     }
-    
   },
   data() {
     return {
