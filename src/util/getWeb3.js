@@ -1,31 +1,30 @@
 import Web3 from 'web3'
 
-
-/*
-* 1. Check for injected web3 (mist/metamask)
-* 2. If metamask/mist create a new web3 instance and pass on result
-* 3. Get networkId - Now we can check the user is connected to the right network to use our dApp
-* 4. Get user account from metamask
-* 5. Get user balance
-*/
-
-let getWeb3 = new Promise(function (resolve, reject) {
-  // Check for injected web3 (mist/metamask)
+const getWeb3 = async ()  => {
   var web3js = window.ethereum
   if (typeof web3js !== 'undefined') {
-    var web3 = new Web3(web3js)
-    console.log(web3.currentProvider.isMetaMask)
-    resolve({
-      injectedWeb3: web3.currentProvider.isMetaMask,
-      web3 () {
-        return web3
-      }
-    })
-  } else {
-    // web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545')) GANACHE FALLBACK
-    reject(new Error('Unable to connect to Metamask'))
+    await window.ethereum.request({ method: "eth_requestAccounts" });
   }
-})
+  return new Promise((resolve, reject) => {
+    //window.addEventListener("load", async () => {
+      if (typeof window.ethereum !== 'undefined') {
+        const web3 = new Web3(window.ethereum);
+        try {
+          // ask user permission to access his accounts
+          resolve({
+            injectedWeb3: web3.currentProvider.isMetaMask,
+            web3 () {
+              return web3
+            }
+          })
+        } catch (error) {
+          reject(error);
+        }
+      } else {
+        reject(new Error("Must install MetaMask"));
+      }
+    //});
+  })
   .then(result => {
     return new Promise(function (resolve, reject) {
       // Retrieve network ID
@@ -34,8 +33,10 @@ let getWeb3 = new Promise(function (resolve, reject) {
           // If we can't find a networkId keep result the same and reject the promise
           reject(new Error('Unable to retrieve network ID'))
         } else {
+          console.log(result)
           // Assign the networkId property to our result and resolve promise
           result = Object.assign({}, result, {networkId})
+          
           resolve(result)
         }
       })
@@ -67,5 +68,9 @@ let getWeb3 = new Promise(function (resolve, reject) {
       })
     })
   })
+}
 
+  
+ 
 export default getWeb3
+
