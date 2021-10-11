@@ -59,7 +59,8 @@
         },
         methods:{
           deleteTypedItem(){
-            
+            this.$emit('numero', this.Crytonumero)
+            //console.log(this.Crytonumero)
           }
         }
         
