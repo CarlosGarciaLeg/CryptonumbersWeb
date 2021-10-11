@@ -54,14 +54,14 @@
         </v-row>
         <v-row class=" justify-center pa-0 ma-0 " style="width:100%; ">
           <v-col cols="12" md="6" lg="6" class=" ">
-            <search-bar></search-bar>
+            <search-bar @numero="getNumber($event)"></search-bar>
           </v-col>
         </v-row>
         <v-row class=" justify-center pa-0 ma-0  " style="width:100%; ">
           <v-col cols="12" md="6" lg="6" class=" text-left ">
             <v-row class=" justify-center pa-0 ma-0  " style="width:100%; ">
               <v-col cols="12" md="11" lg="11" class=" text-left pa-0  ">
-                <span class="white--text">Resultados:</span>
+                <span class="white--text">Resultados:  </span>
                 <v-divider class="mt-2" color="#818181"></v-divider>
               </v-col>
             </v-row>
@@ -81,9 +81,20 @@
                   style="border:1px solid #ffa04d; color:#1b1d22;"
                   class="El-nmero-que-busca pa-5 rounded"
                 >
+                  <v-img
+                      v-if="pending"
+                        contain
+                        width="50"
+                        height="50"
+                        :src="require('@/assets/loading.gif')"
+                        alt="logo-blanco"
+                      >
+    
+                  </v-img>
                   <v-row
                     class=" justify-center pa-0 ma-0  "
                     style="width:100%; "
+                    v-if="!winEvent"
                   >
                     <v-col
                       cols="2"
@@ -98,9 +109,42 @@
                       >
                       </v-img>
                     </v-col>
-                    <v-col cols="10" class="pa-0  ma-0">
-                      El número que busca ya ha sido registrado por otro
-                      usuario, realice otra búsqueda con un número diferente
+                    <v-col cols="10" class="pa-0  ma-0" >
+                      Ingresar el numero  que desea generar como NFT.
+                    </v-col>
+                  </v-row>
+                 
+                  <v-row
+                    class=" justify-center pa-0 ma-0  "
+                    style="width:100%; "
+                    v-else
+                  >
+                  
+                    <v-col
+                      cols="2"
+                      class="pa-0 ma-0 justify-center d-flex text-center align-center"
+                    >
+                      <v-img
+                        contain
+                        width="30"
+                        height="30"
+                        :src="require('@/assets/MetaMask_Fox.svg')"
+                        alt="logo-blanco"
+                      >
+                      </v-img>
+                    </v-col>
+                    <v-col cols="10" class="pa-0  ma-0"  v-if="winEvent">
+                      
+                      <ul>
+                        <li>Id Number: {{ this.winEvent.numberId }}</li>
+                        <li>Nro NFT registrado:{{ this.winEvent.naturalNumber }}</li>
+                        <li>Hash number:{{ this.winEvent.hashNumber }}</li>
+                        <li>Fecha Creacion:{{ this.winEvent.timeCreated }}</li>
+                        <li>
+                           <a :href=" urles + tx " target="blank"> Ver la transaccion en Etherscan </a>
+                          
+                          </li>
+                      </ul> 
                     </v-col>
                   </v-row>
                 </v-card>
@@ -109,7 +153,7 @@
             <!-- NFT -->
             <v-row
               class=" justify-center pa-0 ma-0  "
-              v-if="!showNumNFT"
+              v-if="showNumNFT"
               style="width:100%; "
             >
               <v-col
@@ -213,7 +257,7 @@
                                   <v-btn
                                     color="#0e41ff"
                                     class="rounded-5 mt-1  pa-0 ma-0 btn--search white--text "
-                                    @click="activarModal()"
+                                    @click="clickNumber( item.numero)"
                                     width="180"
                                     style="font-family: Roboto; color:white; font-weight: 500; font-size:14px; text-transform: unset !important; "
                                   >
@@ -230,11 +274,11 @@
                 </v-card>
               </v-col>
             </v-row>
-
+          
             <!-- premium -->
             <v-row
               class=" justify-center pa-0 ma-0  "
-              v-if="showNumNFT"
+              v-if="!showNumNFT"
               style="width:100%; "
             >
               <v-col
@@ -323,24 +367,30 @@
 </template>
 
 <script>
+
+
 export default {
   data() {
     return {
+      urles: 'https://ropsten.etherscan.io/tx/',
+      amount: null,
+      pending: false,
+      winEvent: null,
       modalOn: false,
       showNumNFT: false,
       tarjeta: [
-        {
+        /*{
           status: false,
-          numero: "115",
+          numero: this.numero,
           precio: "0,0000015 NMBC",
           src: require("@/assets/img-nft-basic.png"),
         },
         {
           status: true,
-          numero: "115",
+          numero: this.numero,
           precio: "2000,00 NMBC",
           src: require("@/assets/group-8.png"),
-        },
+        },*/
       ],
       Cardpremiun: [
         {
@@ -371,6 +421,48 @@ export default {
     };
   },
   methods: {
+    getNumber (event) {
+      this.tarjeta = [],
+      this.numero = event,
+      this.showNumNFT = true,
+      this.tarjeta.push({
+          status: false,
+          numero: event,
+          precio: "0,0000015 NMBC",
+          src: require("@/assets/img-nft-basic.png"),
+      }
+      )
+      console.log(this.tarjeta)
+    },
+    clickNumber (event) {
+      console.log(event, this.amount)
+      this.winEvent = null
+      this.pending = true
+      this.$store.state.contractInstance().createRandomNumber(event, {
+        gas: 300000,
+        value: this.$store.state.web3.web3Instance().toWei(this.amount, 'ether'),
+        from: this.$store.state.web3.coinbase
+      }, (err, result) => {
+        if (err) {
+          console.log(err)
+          this.pending = false
+        } else {
+          
+          let nuevoNumero = this.$store.state.contractInstance().NewNumber()
+           nuevoNumero.watch((err, event)  => {
+            if (err) {
+              console.log('could not get event Won()')
+            } else {
+              console.log('event new number ' ,event)
+              //console.log('natural number', result.args.naturalNumber)
+              this.winEvent = event.args
+              this.tx = event.transactionHash
+              this.pending = false
+            }
+          })
+        }
+      })
+    },
     obtenerNumNFT() {
       if (!this.showNumNFT) {
         return (this.showNumNFT = true);
@@ -393,6 +485,10 @@ export default {
       }
     },
   },
+  mounted () {
+    console.log('dispatching getContractInstance')
+    this.$store.dispatch('getContractInstance')
+  }
 };
 </script>
 
@@ -471,5 +567,8 @@ export default {
   line-height: normal;
   letter-spacing: 0.28px;
   color: #fff;
+}
+#loader {
+  width:150px;
 }
 </style>

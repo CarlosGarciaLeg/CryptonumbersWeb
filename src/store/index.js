@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import state from './state'
 import getWeb3 from '../util/getWeb3'
+import pollWeb3 from '../util/pollWeb3'
+import getContract from '../util/getContract'
 
 Vue.use(Vuex)
 
@@ -20,17 +22,27 @@ export default new Vuex.Store({
       web3Copy.isInjected = result.injectedWeb3
       web3Copy.web3Instance = result.web3
       state.web3 = web3Copy
+      pollWeb3()
       },
       errorHandler(state, data){
         console.log(state)
         let web3Copy = state.web3
         web3Copy.error = data
         state.web3 = web3Copy
+      },
+      pollWeb3Instance (state, payload) {
+        console.log('pollWeb3Instance mutation being executed', payload)
+        state.web3.coinbase = payload.coinbase
+        state.web3.balance = parseInt(payload.balance, 10)
+      },
+      registerContractInstance (state, payload) {
+        console.log('cryptonumbers contract instance: ', payload)
+        state.contractInstance = () => payload
       }
 
   },
   actions: {
-      async registerWeb3 ({commit}) {
+    async registerWeb3 ({commit}) {
       console.log('registerWeb3 Action being executed')
       //const web3 = await getWeb3();
       getWeb3().then(result => {
@@ -40,6 +52,15 @@ export default new Vuex.Store({
         console.log('Error in action registerWeb3', e)
         commit('errorHandler',e)
       })
+    },
+    pollWeb3 ({commit}, payload) {
+      console.log('pollWeb3 action being executed')
+      commit('pollWeb3Instance', payload)
+    },
+    getContractInstance ({commit}) {
+      getContract.then(result => {
+        commit('registerContractInstance', result)
+      }).catch(e => console.log(e))
     }
   },
   modules: {
